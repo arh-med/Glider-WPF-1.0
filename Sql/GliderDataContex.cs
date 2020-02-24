@@ -6,7 +6,7 @@ namespace Glider_WPF_1._0.Sql
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class GliderDataContext : DbContext // класс установленый с пакетом System.Data.Entity для работы с базой данных
-    {   
+    {   //коммент
         private static GliderDataContext _instance; // статическое поле 
         public static GliderDataContext Instance // данное свойство дайт доступ к безе данный с инициализацие только один раз 
         {
