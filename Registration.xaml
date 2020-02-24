@@ -1,0 +1,51 @@
+﻿<Window x:Class="Glider_WPF_1._0.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Glider_WPF_1._0"
+        mc:Ignorable="d"
+        Title="Registration" Height="400" Width="550" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid Background="#FF79CBE3">
+        <DockPanel Width="320" Height="420" HorizontalAlignment="Right" >
+            <Image Source="./Picure/Logo.jpg"  />
+
+        </DockPanel>
+        <StackPanel Height="80" Width="200" Margin="30,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label Content="Registration"  Width="150" Height="40" HorizontalAlignment="Left" FontSize="22" FontWeight="Bold"/>
+            <Label  Content="Fill the form" HorizontalAlignment="Left"  FontSize="12"  />
+            <Label Margin="4,0,0,0"  Background="#FF93D6E9" HorizontalAlignment="Left"  Width="183" Height="5"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="57" Width="200" Margin="30,0,0,218" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <materialDesign:PackIcon Kind="Account" Width="20" Height="20" Foreground="{Binding ElementName=txt_User,Path=BorderBrush}" Margin="0,19"/>
+            <TextBox  x:Name="txt_User" materialDesign:HintAssist.Hint="User" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="170"  />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="57" Width="200" Margin="30,0,0,160" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <materialDesign:PackIcon Kind="Key" Width="20" Height="20" Foreground="{Binding ElementName=txt_Password,Path=BorderBrush}" Margin="0,19"/>
+            <PasswordBox  x:Name="txt_Password" VerticalAlignment="Top" materialDesign:HintAssist.Hint="Password"
+      Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="170" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="57" Width="200" Margin="30,0,0,100" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <materialDesign:PackIcon Kind="Company" Width="20" Height="20" Foreground="{Binding ElementName=txt_Company,Path=BorderBrush}" Margin="0,19"/>
+            <TextBox  x:Name="txt_Company" materialDesign:HintAssist.Hint="Company" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="170"  />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="57" Width="200" Margin="30,0,0,40" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <materialDesign:PackIcon Kind="LocationOn" Width="20" Height="20" Foreground="{Binding ElementName=txt_Adress,Path=BorderBrush}" Margin="0,19"/>
+            <TextBox  x:Name="txt_Adress" materialDesign:HintAssist.Hint="Adress" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="170"  />
+        </StackPanel>
+        <ToggleButton Click="ToggleButton_Exit"  VerticalAlignment="Top" HorizontalAlignment="Right"
+  Style="{StaticResource MaterialDesignFlatToggleButton}"
+  ToolTip="MaterialDesignFlatToggleButton" Height="20" Width="20">
+            <materialDesign:PackIcon Kind="Close" Height="20" Width="20" />
+        </ToggleButton >
+        
+        
+        
+        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Registration" Width="105"
+    Style="{StaticResource MaterialDesignRaisedLightButton}"
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9" Margin="75,0,0,15" BorderBrush="#FF93D6E9" Click="Button_Reg"/>
+
+
+    </Grid>
+</Window>
