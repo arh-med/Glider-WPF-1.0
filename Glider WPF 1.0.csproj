@@ -85,9 +85,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\202002241920078_v1.cs" />
-    <Compile Include="Migrations\202002241920078_v1.designer.cs">
-      <DependentUpon>202002241920078_v1.cs</DependentUpon>
+    <Compile Include="Migrations\202003011148413_v1.cs" />
+    <Compile Include="Migrations\202003011148413_v1.designer.cs">
+      <DependentUpon>202003011148413_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Registration.xaml.cs">
@@ -95,12 +95,19 @@
     </Compile>
     <Compile Include="Request.cs" />
     <Compile Include="Sql\GliderDataContex.cs" />
+    <Compile Include="Task.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserControlRequest\RequestUserControl.xaml.cs">
       <DependentUpon>RequestUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlSaver\SaverUserControl.xaml.cs">
       <DependentUpon>SaverUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlTask\TaskElementUserControl.xaml.cs">
+      <DependentUpon>TaskElementUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlTask\TaskUserControl.xaml.cs">
+      <DependentUpon>TaskUserControl.xaml</DependentUpon>
     </Compile>
     <Page Include="Home.xaml">
       <SubType>Designer</SubType>
@@ -135,6 +142,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControlTask\TaskElementUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlTask\TaskUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ObservableObject.cs" />
@@ -151,8 +166,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202002241920078_v1.resx">
-      <DependentUpon>202002241920078_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003011148413_v1.resx">
+      <DependentUpon>202003011148413_v1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

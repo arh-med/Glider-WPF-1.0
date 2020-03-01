@@ -11,10 +11,23 @@
                 "dbo.Requests",
                 c => new
                     {
-                        Id = c.Guid(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         Nomination = c.String(unicode: false),
                         Quantity = c.String(unicode: false),
                         CustomerPhone = c.String(unicode: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Tasks",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Heading = c.String(unicode: false),
+                        Tast = c.String(unicode: false),
+                        Alarm = c.DateTime(nullable: false, precision: 0),
+                        Replay = c.DateTime(nullable: false, precision: 0),
+                        Done = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -34,6 +47,7 @@
         public override void Down()
         {
             DropTable("dbo.Users");
+            DropTable("dbo.Tasks");
             DropTable("dbo.Requests");
         }
     }

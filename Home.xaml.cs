@@ -1,4 +1,5 @@
 ﻿using Glider_WPF_1._0.UserControlRequest;
+using Glider_WPF_1._0.UserControlTask;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace Glider_WPF_1._0
     public partial class Home : Window
     {
         RequestUserControl request = new RequestUserControl();
+        TaskUserControl task = new TaskUserControl();
         public Home()
         {
             InitializeComponent();
@@ -43,6 +45,13 @@ namespace Glider_WPF_1._0
         {
             GridAddUserControl.Children.Clear();
             GridAddUserControl.Children.Add(request);
+        }
+
+   
+        private void TaskMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            GridAddUserControl.Children.Clear();
+            GridAddUserControl.Children.Add(task);
         }
     }
 }

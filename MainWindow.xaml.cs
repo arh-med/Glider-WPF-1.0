@@ -55,6 +55,7 @@ namespace Glider_WPF_1._0
                 {
                     Home home = new Home();
                     home.Show();
+                    this.Close();
                 }
                 else
                 {

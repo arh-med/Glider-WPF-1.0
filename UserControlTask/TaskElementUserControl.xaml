@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="Glider_WPF_1._0.UserControlTask.TaskElementUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Glider_WPF_1._0.UserControlTask"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Border x:Name="Border_cursor" BorderBrush="LightGray" BorderThickness="1"  CornerRadius="15" Margin="15,10,25,25">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="CheckBox_heading" Unchecked="CheckBox_heading_Unchecked" Checked="CheckBox_Checked" Content="{Binding Heading}" IsChecked="False" Style="{StaticResource MaterialDesignDarkCheckBox}"
+   VerticalAlignment="Top" Margin="12" Foreground="#FF385E69" FontSize="15" />
+                <TextBlock Margin="5,15" TextWrapping="Wrap" Text="{Binding Tast}" Foreground="#FF385E69" FontSize="15" Width="200"/>
+                <ToggleButton Click="ToggleButton_Click" VerticalAlignment="Top" Margin="15" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Content and ToggleButtonAssist.OnContent">
+                    <materialDesign:PackIcon Kind="Pin" RenderTransformOrigin=".5,.5">
+                        <materialDesign:PackIcon.RenderTransform>
+                            <RotateTransform  Angle="45" />
+                        </materialDesign:PackIcon.RenderTransform>
+                    </materialDesign:PackIcon>
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon Kind="Pin" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                </ToggleButton >
+                <materialDesign:TimePicker  Is24Hours="True" x:Name="TimePicker_vis" Width="130"  HorizontalAlignment="Left" Margin="5,15,15,15" VerticalAlignment="Top" Visibility="Hidden" />
+            </StackPanel>
+        </Border>
+        <TextBlock Text="{Binding Alarm}"  Foreground="#FF385E69" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        
+        
+    </Grid>
+</UserControl>

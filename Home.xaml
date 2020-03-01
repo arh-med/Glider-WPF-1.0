@@ -8,7 +8,7 @@
         xmlns:MatDes="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:UserControl="clr-namespace:Glider_WPF_1._0.UserControlRequest"
         xmlns:UserControl1="clr-namespace:Glider_WPF_1._0.UserControlSaver"
-        Title="Glider" Height="450" Width="800" WindowStartupLocation="CenterScreen" >
+        Title="Glider" Height="500" Width="800" WindowStartupLocation="CenterScreen" >
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -80,7 +80,7 @@
                         </ListViewItem>
                     </ListView>
                     <ListView>
-                        <ListViewItem Height="60">
+                        <ListViewItem MouseLeftButtonUp="TaskMouseLeftButtonUp" Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <MatDes:PackIcon Margin="5,10" Foreground="#FF385E69" Kind="CalendarTask" Height="25" Width="25" VerticalAlignment="Center"/>
                                 <TextBlock Margin="20 10" VerticalAlignment="Center" Foreground="#FF385E69" Text="Task" FontFamily="Cambria Math" FontSize="16"/>

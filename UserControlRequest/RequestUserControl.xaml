@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800" >
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Background="#FF79CBE3" >
@@ -31,10 +31,16 @@
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid   Background="White"/>
+            <Grid   Background="White">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Width="150">
+                    <MatDes:PackIcon Kind="Search" Width="20" Height="20" Foreground="{Binding ElementName=txt_Search,Path=BorderBrush}" Margin="5" VerticalAlignment="Bottom" />
+                    <TextBox x:Name="txt_Search"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
+                          MatDes:HintAssist.Hint="Search" Width="110" Margin="0,5" FontSize="14"  />
+                </StackPanel>
+            </Grid>
             <Grid Grid.Row="1" Background="White">
                 <ScrollViewer  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
-                    <DataGrid  x:Name="DataGridRequest"  ItemsSource="{Binding Requests}" AutoGenerateColumns="False">
+                    <DataGrid  x:Name="DataGridRequest"  ItemsSource="{Binding Requests}" AutoGenerateColumns="False" CanUserAddRows="False" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nomination" Binding="{Binding Nomination}" Width="*"/>
                             <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="*"/>
