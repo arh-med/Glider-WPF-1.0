@@ -33,9 +33,9 @@
             </Grid.RowDefinitions>
             <Grid   Background="White">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Width="150">
-                    <MatDes:PackIcon Kind="Search" Width="20" Height="20" Foreground="{Binding ElementName=txt_Search,Path=BorderBrush}" Margin="5" VerticalAlignment="Bottom" />
+                    <MatDes:PackIcon Kind="Search" Width="20" Height="20" Foreground="{Binding ElementName=txt_Search,Path=BorderBrush}" Margin="5" VerticalAlignment="Bottom" MouseDoubleClick="PackIcon_MouseDoubleClick" />
                     <TextBox x:Name="txt_Search"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
-                          MatDes:HintAssist.Hint="Search" Width="110" Margin="0,5" FontSize="14"  />
+                          MatDes:HintAssist.Hint="Search" Width="110" Margin="0,5" FontSize="14" TextChanged="txt_Search_TextChanged" />
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1" Background="White">

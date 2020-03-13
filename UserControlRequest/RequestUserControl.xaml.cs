@@ -80,11 +80,34 @@ namespace Glider_WPF_1._0.UserControlRequest
 
         private void ReminderButtonClickEventHandler(object sender, RoutedEventArgs e)
         {
-            //DataGridRequest.ItemsSource = null;
-            //Requests = new ObservableCollection<Request>(GliderDataContext.Instance.Requests.ToList());
-            //DataGridRequest.ItemsSource = Requests;
 
+            
 
+        }
+
+       
+
+        private void PackIcon_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DataGridRequest.ItemsSource = null;
+            Requests = new ObservableCollection<Request>(GliderDataContext.Instance.Requests.ToList());
+            DataGridRequest.ItemsSource = Requests;
+        }
+
+        private void txt_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string filter = txt_Search.Text;
+            for (int i = 0; i < Requests.Count; i++)
+            {
+                if (true == Requests[i].Nomination.ToUpper().StartsWith(filter.ToUpper()) && txt_Search.Text!="" )
+                {
+                    (DataGridRequest.ItemContainerGenerator.ContainerFromIndex(i) as DataGridRow).Foreground = Brushes.DarkBlue;
+                }
+                else
+                {
+                    (DataGridRequest.ItemContainerGenerator.ContainerFromIndex(i) as DataGridRow).Foreground = Brushes.Black;
+                }               
+            }
         }
     }
 }
