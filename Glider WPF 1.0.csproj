@@ -94,6 +94,7 @@
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Request.cs" />
+    <Compile Include="SettingsGlider\SettingsGlider.cs" />
     <Compile Include="Sql\GliderDataContex.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="User.cs" />

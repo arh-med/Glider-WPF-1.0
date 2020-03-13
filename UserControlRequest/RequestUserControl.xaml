@@ -24,7 +24,7 @@
             <Button  FontSize="12" Content="Remove" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
     ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Click="RemoveButtonClickEventHandler" />
             <Button FontSize="12" Content="Reminder" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9"/>
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Click="ReminderButtonClickEventHandler"/>
         </StackPanel>
         <Grid Grid.Column="1" >
             <Grid.RowDefinitions>

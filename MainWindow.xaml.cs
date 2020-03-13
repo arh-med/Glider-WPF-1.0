@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Glider_WPF_1._0.Properties;
+
 
 namespace Glider_WPF_1._0
 {
@@ -21,10 +23,12 @@ namespace Glider_WPF_1._0
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
-
+            SettingsGlider.SettingsGlider.CheckStart(CheckRemember, txt_Login, txt_Password);
+            
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -40,33 +44,29 @@ namespace Glider_WPF_1._0
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-          
             GliderDataContext gliderDataContext =  GliderDataContext.Instance;
             string login = txt_Login.Text;
             User user = gliderDataContext.Users.FirstOrDefault(u => u.Login == login);
 
             if(user == null)
-            {
-                lable_txt.Content = "Incorrect username or password";
-            }
+              lable_txt.Content = "Incorrect username or password";
             else
-            {
+            { 
                 if (txt_Password.Password == user.Password)
-                {
+                { 
+                    SettingsGlider.SettingsGlider.CheckRemember(CheckRemember, txt_Login, txt_Password);
                     Home home = new Home();
                     home.Show();
                     this.Close();
                 }
                 else
-                {
-                    lable_txt.Content = "Incorrect username or password";
-                }
+                 lable_txt.Content = "Incorrect username or password"; 
             }
         }
 
         private void ToggleButton_Exit(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
+        }  
     }
 }

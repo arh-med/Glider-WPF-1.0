@@ -31,11 +31,11 @@
   ToolTip="MaterialDesignFlatToggleButton" Height="20" Width="20">
           <materialDesign:PackIcon Kind="Close" Height="20" Width="20" />
         </ToggleButton>
-        <CheckBox FontSize="9" HorizontalAlignment="Left" Foreground="{Binding ElementName=txt_User,Path=BorderBrush}" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignCheckBox}" Margin="30,0,0,137" Width="90">Remember</CheckBox>
+        <CheckBox x:Name="CheckRemember" FontSize="9" HorizontalAlignment="Left" Foreground="{Binding ElementName=txt_User,Path=BorderBrush}" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignCheckBox}" Margin="30,0,0,137" Width="90">Remember</CheckBox>
         <Button  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="120,0,0,132" FontSize="9" Content="Need help?" Style="{StaticResource MaterialDesignFlatButton}" ToolTip="MaterialDesignFlatButton" Height="25" Width="100"/>
         <Button  HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Login" Width="70" 
     Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9" Margin="30,0,0,90" BorderBrush="#FF93D6E9" RenderTransformOrigin="1.108,0.344" Click="Button_Click_1"/>
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9" Margin="30,0,0,90" BorderBrush="#FF93D6E9" RenderTransformOrigin="1.108,0.344" Click="Button_Click_1" />
         <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Registration" Width="105"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9" Margin="115,0,0,90" BorderBrush="#FF93D6E9" Click="Button_Click"/>

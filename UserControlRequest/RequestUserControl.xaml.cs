@@ -77,5 +77,14 @@ namespace Glider_WPF_1._0.UserControlRequest
             else
                 MessageBox.Show("Fill in the Nomination");
         }
+
+        private void ReminderButtonClickEventHandler(object sender, RoutedEventArgs e)
+        {
+            //DataGridRequest.ItemsSource = null;
+            //Requests = new ObservableCollection<Request>(GliderDataContext.Instance.Requests.ToList());
+            //DataGridRequest.ItemsSource = Requests;
+
+
+        }
     }
 }

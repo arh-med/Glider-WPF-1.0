@@ -26,7 +26,7 @@
                 <materialDesign:TimePicker  Is24Hours="True" x:Name="TimePicker_vis" Width="130"  HorizontalAlignment="Left" Margin="5,15,15,15" VerticalAlignment="Top" Visibility="Hidden" />
             </StackPanel>
         </Border>
-        <TextBlock Text="{Binding Alarm}"  Foreground="#FF385E69" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="txt_Timer" Text="{Binding Alarm}"  Foreground="#FF385E69" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         
         
     </Grid>
