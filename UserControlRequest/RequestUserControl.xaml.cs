@@ -101,7 +101,10 @@ namespace Glider_WPF_1._0.UserControlRequest
             {
                 if (true == Requests[i].Nomination.ToUpper().StartsWith(filter.ToUpper()) && txt_Search.Text!="" )
                 {
-                    (DataGridRequest.ItemContainerGenerator.ContainerFromIndex(i) as DataGridRow).Foreground = Brushes.DarkBlue;
+                    var row = (DataGridRequest.ItemContainerGenerator.ContainerFromIndex(i) as DataGridRow);
+                    row.Foreground = Brushes.Red;
+                    var test = DataGridRequest.Items[i];
+                    DataGridRequest.ScrollIntoView(test);
                 }
                 else
                 {

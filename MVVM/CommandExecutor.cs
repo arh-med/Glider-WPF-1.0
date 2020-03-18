@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Glider_WPF_1._0
+namespace Glider_WPF_1._0.MVVM
 {
-    class CommandExecutor: ICommand
+    class CommandExecutor : ICommand
     {
         public event EventHandler CanExecuteChanged;
         private Action actionToExecute;
-        
+
         public CommandExecutor(Action actionToExecute)
         {
             this.actionToExecute = actionToExecute;

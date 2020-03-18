@@ -28,6 +28,17 @@ namespace Glider_WPF_1._0.UserControlTask
             InitializeComponent();
             Tasks = new ObservableCollection<Task>(GliderDataContext.Instance.Tasks.ToList());
             DataContext = this;
+
+            System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 55);
+            timer.Tick += (sender, e) => 
+            {
+                foreach (var task in Tasks)
+                {
+                    //Если task.Alarm ровно текушему времени(игнорируем секунды) то надо вывести оповешение/сообшение/текст
+                }
+            };
+            timer.Start();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)

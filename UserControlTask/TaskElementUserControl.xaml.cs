@@ -24,12 +24,6 @@ namespace Glider_WPF_1._0.UserControlTask
         public TaskElementUserControl()
         {
             InitializeComponent();
-            System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
-            timer.Interval = new TimeSpan( 0, 0, 55);
-            timer.Tick += new EventHandler(timerTick);
-            timer.Start();
-            
-
         }
         private void timerTick(object sender, EventArgs e)
         {

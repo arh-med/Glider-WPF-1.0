@@ -23,12 +23,19 @@ namespace Glider_WPF_1._0
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        private MainWindowViewModel _mainWindowViewModel;
         public MainWindow()
         {
             InitializeComponent();
-            SettingsGlider.SettingsGlider.CheckStart(CheckRemember, txt_Login, txt_Password);
-            
+
+            _mainWindowViewModel = new MainWindowViewModel();
+            DataContext = _mainWindowViewModel;
+
+            //SettingsGlider.SettingsGlider.CheckStart(CheckRemember, txt_Login, txt_Password);
+            txt_Password.Password = _mainWindowViewModel.PassworText;
+            _mainWindowViewModel.OnLoginFailed += Login_Failed;
+            _mainWindowViewModel.OnLoginSucceded += Login_Succeded;
+
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -42,31 +49,27 @@ namespace Glider_WPF_1._0
             registration.Show();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            GliderDataContext gliderDataContext =  GliderDataContext.Instance;
-            string login = txt_Login.Text;
-            User user = gliderDataContext.Users.FirstOrDefault(u => u.Login == login);
-
-            if(user == null)
-              lable_txt.Content = "Incorrect username or password";
-            else
-            { 
-                if (txt_Password.Password == user.Password)
-                { 
-                    SettingsGlider.SettingsGlider.CheckRemember(CheckRemember, txt_Login, txt_Password);
-                    Home home = new Home();
-                    home.Show();
-                    this.Close();
-                }
-                else
-                 lable_txt.Content = "Incorrect username or password"; 
-            }
-        }
+       
 
         private void ToggleButton_Exit(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }  
+        }
+
+        private void txt_Password_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            _mainWindowViewModel.PassworText = ((PasswordBox)sender).Password;
+        }
+
+        private void Login_Failed(object sender, EventArgs e)
+        {
+            lable_txt.Content = "Incorrect username or password";
+        }
+        private void Login_Succeded(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Close();
+        }
     }
 }
