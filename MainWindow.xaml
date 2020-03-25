@@ -38,7 +38,7 @@
     ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9" Margin="30,0,0,90" BorderBrush="#FF93D6E9" RenderTransformOrigin="1.108,0.344" Command="{Binding LoginCommand}"  />
         <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Registration" Width="105"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9" Margin="115,0,0,90" BorderBrush="#FF93D6E9" />
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9" Margin="115,0,0,90" BorderBrush="#FF93D6E9" Click="RegButtonClick" />
 
 
     </Grid>

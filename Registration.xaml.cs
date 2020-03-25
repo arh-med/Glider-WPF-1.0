@@ -39,9 +39,6 @@ namespace Glider_WPF_1._0
             GliderDataContext gliderDataContext = GliderDataContext.Instance;
             gliderDataContext.Users.Add(user);
             gliderDataContext.SaveChanges();
-           
-
-            //User user = gliderDataContext.Users.FirstOrDefault(u => u.Login == "Andrei");
         }
 
         private void ToggleButton_Exit(object sender, RoutedEventArgs e)

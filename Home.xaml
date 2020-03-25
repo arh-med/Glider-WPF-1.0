@@ -88,18 +88,18 @@
                         </ListViewItem>
                     </ListView>
                     <ListView>
-                        <ListViewItem Height="60">
+                        <ListViewItem MouseLeftButtonUp="MailMouseLeftButtonUp" Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <MatDes:PackIcon Margin="5,10" Foreground="#FF385E69" Kind="NotesOutline" Height="25" Width="25" VerticalAlignment="Center"/>
-                                <TextBlock Margin="20 10" VerticalAlignment="Center" Foreground="#FF385E69" Text="Notes" FontFamily="Cambria Math" FontSize="16"/>
+                                <TextBlock Margin="20 10" VerticalAlignment="Center" Foreground="#FF385E69" Text="Mail" FontFamily="Cambria Math" FontSize="16"/>
                             </StackPanel>
                         </ListViewItem>
                     </ListView>
                     <ListView>
-                        <ListViewItem Height="60">
+                        <ListViewItem MouseLeftButtonUp="ReportMouseLeftButtonUp"  Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <MatDes:PackIcon Margin="5,10" Foreground="#FF385E69" Kind="PlaylistCheck" Height="25" Width="25" VerticalAlignment="Center"/>
-                                <TextBlock Margin="20 10" VerticalAlignment="Center" Foreground="#FF385E69" Text="Verification" FontFamily="Cambria Math" FontSize="16"/>
+                                <TextBlock Margin="20 10" VerticalAlignment="Center" Foreground="#FF385E69" Text="Report" FontFamily="Cambria Math" FontSize="16"/>
                             </StackPanel>
                         </ListViewItem>
                     </ListView>

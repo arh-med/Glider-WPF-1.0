@@ -85,14 +85,14 @@ namespace Glider_WPF_1._0
                         return;
                     }
 
-                    if (checkRem == true)
+                    if (CheckRem == true)
                     {
                         Settings.Default["Login"] = Encode(LoginText);
                         Settings.Default["Password"] = Encode(PassworText);
                         Settings.Default["Remember"] = true;
                         Settings.Default.Save();
                     }
-                    else if (checkRem == false)
+                    else if (CheckRem == false)
                     {
                         Settings.Default["Login"] = Encode("");
                         Settings.Default["Password"] = Encode("");

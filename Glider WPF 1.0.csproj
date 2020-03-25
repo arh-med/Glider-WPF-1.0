@@ -96,10 +96,29 @@
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Report.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="Sql\GliderDataContex.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserControlMail\MailUserControl.xaml.cs">
+      <DependentUpon>MailUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMail\MessageRecipientsUserControl.xaml.cs">
+      <DependentUpon>MessageRecipientsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMail\MessageUserControl.xaml.cs">
+      <DependentUpon>MessageUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMail\WindowMailMessage.xaml.cs">
+      <DependentUpon>WindowMailMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlReport\ReportElementUserControl.xaml.cs">
+      <DependentUpon>ReportElementUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlReport\ReportUserControl.xaml.cs">
+      <DependentUpon>ReportUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlRequest\RequestUserControl.xaml.cs">
       <DependentUpon>RequestUserControl.xaml</DependentUpon>
     </Compile>
@@ -112,6 +131,10 @@
     <Compile Include="UserControlTask\TaskUserControl.xaml.cs">
       <DependentUpon>TaskUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlTask\WindowTaskMessage.xaml.cs">
+      <DependentUpon>WindowTaskMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserMail.cs" />
     <Page Include="Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -135,6 +158,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControlMail\MailUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlMail\MessageRecipientsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlMail\MessageUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlMail\WindowMailMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlReport\ReportElementUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlReport\ReportUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControlRequest\RequestUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlTask\TaskUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlTask\WindowTaskMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,6 +239,7 @@
   <ItemGroup>
     <Resource Include="Picure\PictureHome.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.3.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.3.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

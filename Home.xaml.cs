@@ -1,4 +1,6 @@
-﻿using Glider_WPF_1._0.UserControlRequest;
+﻿using Glider_WPF_1._0.UserControlMail;
+using Glider_WPF_1._0.UserControlReport;
+using Glider_WPF_1._0.UserControlRequest;
 using Glider_WPF_1._0.UserControlTask;
 using System;
 using System.Collections.Generic;
@@ -23,6 +25,8 @@ namespace Glider_WPF_1._0
     {
         RequestUserControl request = new RequestUserControl();
         TaskUserControl task = new TaskUserControl();
+        MailUserControl mailUser = new MailUserControl();
+        ReportUserControl report = new ReportUserControl();
         public Home()
         {
             InitializeComponent();
@@ -52,6 +56,18 @@ namespace Glider_WPF_1._0
         {
             GridAddUserControl.Children.Clear();
             GridAddUserControl.Children.Add(task);
+        }
+
+        private void MailMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            GridAddUserControl.Children.Clear();
+            GridAddUserControl.Children.Add(mailUser);
+        }
+
+        private void ReportMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            GridAddUserControl.Children.Clear();
+            GridAddUserControl.Children.Add(report);
         }
     }
 }

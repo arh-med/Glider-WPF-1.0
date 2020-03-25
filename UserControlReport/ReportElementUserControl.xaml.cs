@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,21 +13,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Glider_WPF_1._0.UserControlTask
+namespace Glider_WPF_1._0.UserControlReport
 {
     /// <summary>
-    /// Логика взаимодействия для TaskElementUserControl.xaml
+    /// Логика взаимодействия для ReportElementUserControl.xaml
     /// </summary>
-    public partial class TaskElementUserControl : UserControl
+    public partial class ReportElementUserControl : UserControl
     {
-        public TaskElementUserControl()
+        public ReportElementUserControl()
         {
             InitializeComponent();
         }
-
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-                Border_cursor.BorderBrush = Brushes.Gray;
+            Border_cursor.BorderBrush = Brushes.Gray;
         }
 
         private void CheckBox_heading_Unchecked(object sender, RoutedEventArgs e)

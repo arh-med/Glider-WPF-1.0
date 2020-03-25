@@ -8,26 +8,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Border x:Name="Border_cursor" BorderBrush="LightGray" BorderThickness="1"  CornerRadius="15" Margin="15,10,25,25">
-            <StackPanel Orientation="Horizontal">
-                <CheckBox x:Name="CheckBox_heading" Unchecked="CheckBox_heading_Unchecked" Checked="CheckBox_Checked" Content="{Binding Heading}" IsChecked="False" Style="{StaticResource MaterialDesignDarkCheckBox}"
-   VerticalAlignment="Top" Margin="12" Foreground="#FF385E69" FontSize="15" />
-                <TextBlock Margin="5,15" TextWrapping="Wrap" Text="{Binding Tast}" Foreground="#FF385E69" FontSize="15" Width="200"/>
-                <ToggleButton Click="ToggleButton_Click" VerticalAlignment="Top" Margin="15" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Content and ToggleButtonAssist.OnContent">
-                    <materialDesign:PackIcon Kind="Pin" RenderTransformOrigin=".5,.5">
-                        <materialDesign:PackIcon.RenderTransform>
-                            <RotateTransform  Angle="45" />
-                        </materialDesign:PackIcon.RenderTransform>
-                    </materialDesign:PackIcon>
-                    <materialDesign:ToggleButtonAssist.OnContent>
-                        <materialDesign:PackIcon Kind="Pin" />
-                    </materialDesign:ToggleButtonAssist.OnContent>
-                </ToggleButton >
-                <materialDesign:TimePicker  Is24Hours="True" x:Name="TimePicker_vis" Width="130"  HorizontalAlignment="Left" Margin="5,15,15,15" VerticalAlignment="Top" Visibility="Hidden" />
-            </StackPanel>
-        </Border>
-        <TextBlock x:Name="txt_Timer" Text="{Binding Alarm}"  Foreground="#FF385E69" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-        
-        
+        <StackPanel>
+            <CheckBox x:Name="CheckBox_heading" Unchecked="CheckBox_heading_Unchecked" Checked="CheckBox_Checked" Content="{Binding Heading}" IsChecked="{Binding Done}" Style="{StaticResource MaterialDesignDarkCheckBox}"
+   VerticalAlignment="Top" Margin="15,5" Foreground="#FF385E69" FontSize="15" />
+            <Border x:Name="Border_cursor" BorderBrush="LightGray" BorderThickness="1"  CornerRadius="15" Margin="30,0,25,10">
+                <TextBlock x:Name="TextBlockTask" Margin="5,5,10,5" TextWrapping="Wrap" Text="{Binding Tast}" Foreground="#FF385E69" FontSize="15" MinWidth="200" MaxWidth="400"/>
+            </Border>
+            <TextBlock x:Name="txt_Timer" Text="{Binding Alarm}"  Foreground="#FF385E69" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20,5"/>
+        </StackPanel>
     </Grid>
 </UserControl>

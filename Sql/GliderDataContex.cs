@@ -36,5 +36,7 @@ namespace Glider_WPF_1._0.Sql
             modelBuilder.Entity<Request>().HasKey(u => u.Id).Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<Task>().HasKey(u => u.Id).Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }
+
+       
     }
 }

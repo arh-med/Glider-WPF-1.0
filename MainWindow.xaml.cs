@@ -43,7 +43,7 @@ namespace Glider_WPF_1._0
             this.DragMove();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void RegButtonClick(object sender, RoutedEventArgs e)
         {
             Registration registration = new Registration();
             registration.Show();
