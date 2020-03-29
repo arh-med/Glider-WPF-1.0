@@ -8,6 +8,22 @@
         public override void Up()
         {
             CreateTable(
+                "dbo.Reports",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        DateReport = c.DateTime(nullable: false, precision: 0),
+                        Revenue = c.String(unicode: false),
+                        Order = c.String(unicode: false),
+                        Checks = c.String(unicode: false),
+                        ChecksAmount = c.String(unicode: false),
+                        Notes = c.String(unicode: false),
+                        Done = c.Boolean(nullable: false),
+                        Login = c.String(unicode: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Requests",
                 c => new
                     {
@@ -15,6 +31,7 @@
                         Nomination = c.String(unicode: false),
                         Quantity = c.String(unicode: false),
                         CustomerPhone = c.String(unicode: false),
+                        Login = c.String(unicode: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -28,6 +45,21 @@
                         Alarm = c.DateTime(nullable: false, precision: 0),
                         Replay = c.DateTime(nullable: false, precision: 0),
                         Done = c.Boolean(nullable: false),
+                        Login = c.String(unicode: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.UserMails",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Heading = c.String(unicode: false),
+                        BodyMessage = c.String(unicode: false),
+                        TimeMessage = c.DateTime(nullable: false, precision: 0),
+                        Done = c.Boolean(nullable: false),
+                        Sender = c.String(unicode: false),
+                        Recipient = c.String(unicode: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -47,8 +79,10 @@
         public override void Down()
         {
             DropTable("dbo.Users");
+            DropTable("dbo.UserMails");
             DropTable("dbo.Tasks");
             DropTable("dbo.Requests");
+            DropTable("dbo.Reports");
         }
     }
 }

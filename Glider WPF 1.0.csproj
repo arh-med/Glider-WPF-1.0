@@ -86,9 +86,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="MainWindowViewModel.cs" />
-    <Compile Include="Migrations\202003011148413_v1.cs" />
-    <Compile Include="Migrations\202003011148413_v1.designer.cs">
-      <DependentUpon>202003011148413_v1.cs</DependentUpon>
+    <Compile Include="Migrations\202003290715159_v1.cs" />
+    <Compile Include="Migrations\202003290715159_v1.designer.cs">
+      <DependentUpon>202003290715159_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MVVM\CommandExecutor.cs" />
@@ -217,8 +217,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202003011148413_v1.resx">
-      <DependentUpon>202003011148413_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003290715159_v1.resx">
+      <DependentUpon>202003290715159_v1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

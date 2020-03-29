@@ -24,6 +24,8 @@ namespace Glider_WPF_1._0.Sql
         public DbSet<User> Users { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<Report> Report { get; set; }
+        public DbSet<UserMail> UserMail { get; set; }
 
         public GliderDataContext() : base()
         {
@@ -35,6 +37,8 @@ namespace Glider_WPF_1._0.Sql
             modelBuilder.Entity<User>().HasKey(u => u.Login);
             modelBuilder.Entity<Request>().HasKey(u => u.Id).Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<Task>().HasKey(u => u.Id).Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Report>().HasKey(u => u.Id).Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<UserMail>().HasKey(u =>u.Id).Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }
 
        
