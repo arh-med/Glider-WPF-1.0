@@ -23,10 +23,18 @@ namespace Glider_WPF_1._0.UserControlTask
     public partial class TaskUserControl : UserControl
     {
         public ObservableCollection<Task> Tasks { get; set; }
-        public TaskUserControl()
+        string Login { get; set; }
+        public TaskUserControl(string Login)
         {
             InitializeComponent();
-            Tasks = new ObservableCollection<Task>(GliderDataContext.Instance.Tasks.ToList());
+            Tasks = new ObservableCollection<Task>();
+            this.Login = Login;
+            ObservableCollection<Task> TaskSort = new ObservableCollection<Task>(GliderDataContext.Instance.Tasks.ToList());
+            foreach (Task tas in TaskSort)
+            {
+                if (tas.Login == Login)
+                    Tasks.Add(tas);
+            }
             DataContext = this;
 
             System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
@@ -62,6 +70,7 @@ namespace Glider_WPF_1._0.UserControlTask
 
                 DateTime dateTime = new DateTime(date.Value.Year, date.Value.Month, date.Value.Day, time.Value.Hour, time.Value.Minute, time.Value.Second);
                 task.Alarm = dateTime;
+                task.Login = Login;
                 GliderDataContext gliderDataContext = GliderDataContext.Instance;
                 gliderDataContext.Tasks.Add(task);
                 gliderDataContext.SaveChanges();
@@ -94,7 +103,13 @@ namespace Glider_WPF_1._0.UserControlTask
                     }
                 }
                 ItemsControlTask.ItemsSource = null;
-                Tasks = new ObservableCollection<Task>(GliderDataContext.Instance.Tasks.ToList());
+                Tasks.Clear();
+                ObservableCollection<Task> TaskSort = new ObservableCollection<Task>(GliderDataContext.Instance.Tasks.ToList());
+                foreach (Task tas in TaskSort)
+                {
+                    if (tas.Login == Login)
+                        Tasks.Add(tas);
+                }
                 ItemsControlTask.ItemsSource = Tasks;
             }
             catch (Exception ex)
@@ -127,8 +142,14 @@ namespace Glider_WPF_1._0.UserControlTask
            gliderDataContext.SaveChanges();
                
            ItemsControlTask.ItemsSource = null;
-           Tasks = new ObservableCollection<Task>(GliderDataContext.Instance.Tasks.ToList());
-           ItemsControlTask.ItemsSource = Tasks;
+            Tasks.Clear();
+            ObservableCollection<Task> TaskSort = new ObservableCollection<Task>(GliderDataContext.Instance.Tasks.ToList());
+            foreach (Task tas in TaskSort)
+            {
+                if (tas.Login == Login)
+                    Tasks.Add(tas);
+            }
+            ItemsControlTask.ItemsSource = Tasks;
             
         }
         public void AddButtonClick(Task task)

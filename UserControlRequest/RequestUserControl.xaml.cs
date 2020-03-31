@@ -17,17 +17,22 @@ using System.Windows.Shapes;
 
 namespace Glider_WPF_1._0.UserControlRequest
 {
-    /// <summary>
-    /// Логика взаимодействия для RequestUserControl.xaml
-    /// </summary>
+    
     public partial class RequestUserControl : UserControl
     {
         public ObservableCollection<Request> Requests { get; set; } // Колекция катороя оповещяет об изменение....
-        public RequestUserControl()
+        string Login { get; set; }
+        public RequestUserControl(string Login)
         {
             InitializeComponent();
-            Requests = new ObservableCollection<Request>(GliderDataContext.Instance.Requests.ToList());
+            Requests = new ObservableCollection<Request>();
+            this.Login = Login;
+            ObservableCollection<Request> RequestsSort = new ObservableCollection<Request>(GliderDataContext.Instance.Requests.ToList());
+            foreach (Request req in RequestsSort)
+            { if (req.Login ==Login)
+                    Requests.Add(req);  }        
             DataContext = this;
+            
         }
 
         private void AddButtonClickEventHandler(object sender, RoutedEventArgs e)
@@ -38,6 +43,7 @@ namespace Glider_WPF_1._0.UserControlRequest
                 request.Nomination = Nomination_txt.Text;
                 request.Quantity = Quanti_txt.Text;
                 request.CustomerPhone = CustomerPhone_txt.Text;
+                request.Login = Login;
                 GliderDataContext gliderDataContext = GliderDataContext.Instance;
                 gliderDataContext.Requests.Add(request);
                 gliderDataContext.SaveChanges();
@@ -90,7 +96,14 @@ namespace Glider_WPF_1._0.UserControlRequest
         private void PackIcon_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataGridRequest.ItemsSource = null;
-            Requests = new ObservableCollection<Request>(GliderDataContext.Instance.Requests.ToList());
+            List<Request> RequestsSort = new List<Request>(GliderDataContext.Instance.Requests.ToList());
+            Requests.Clear();
+            foreach (Request req in RequestsSort)
+            {
+                if (req.Login == Login)
+                    Requests.Add(req);
+            }
+            //Requests = new ObservableCollection<Request>(GliderDataContext.Instance.Requests.ToList());
             DataGridRequest.ItemsSource = Requests;
         }
 

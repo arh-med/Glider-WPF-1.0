@@ -31,7 +31,6 @@ namespace Glider_WPF_1._0
             _mainWindowViewModel = new MainWindowViewModel();
             DataContext = _mainWindowViewModel;
 
-            //SettingsGlider.SettingsGlider.CheckStart(CheckRemember, txt_Login, txt_Password);
             txt_Password.Password = _mainWindowViewModel.PassworText;
             _mainWindowViewModel.OnLoginFailed += Login_Failed;
             _mainWindowViewModel.OnLoginSucceded += Login_Succeded;
@@ -67,7 +66,7 @@ namespace Glider_WPF_1._0
         }
         private void Login_Succeded(object sender, EventArgs e)
         {
-            Home home = new Home();
+            Home home = new Home( _mainWindowViewModel.LoginText);
             home.Show();
             this.Close();
         }

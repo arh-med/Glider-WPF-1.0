@@ -18,19 +18,20 @@ using System.Windows.Shapes;
 
 namespace Glider_WPF_1._0
 {
-    /// <summary>
-    /// Логика взаимодействия для Home.xaml
-    /// </summary>
+   
     public partial class Home : Window
     {
-        RequestUserControl request = new RequestUserControl();
-        TaskUserControl task = new TaskUserControl();
-        MailUserControl mailUser = new MailUserControl();
+        
+        RequestUserControl request;
+        TaskUserControl task;
+        MailUserControl mailUser;
         ReportUserControl report = new ReportUserControl();
-        public Home()
+        public Home(string Login)
         {
             InitializeComponent();
-            
+            request = new RequestUserControl(Login);
+            task = new TaskUserControl(Login);
+            mailUser = new MailUserControl(Login);
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
