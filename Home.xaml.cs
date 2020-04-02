@@ -25,13 +25,14 @@ namespace Glider_WPF_1._0
         RequestUserControl request;
         TaskUserControl task;
         MailUserControl mailUser;
-        ReportUserControl report = new ReportUserControl();
+        ReportUserControl report;
         public Home(string Login)
         {
             InitializeComponent();
             request = new RequestUserControl(Login);
             task = new TaskUserControl(Login);
             mailUser = new MailUserControl(Login);
+            report = new ReportUserControl(Login);
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)

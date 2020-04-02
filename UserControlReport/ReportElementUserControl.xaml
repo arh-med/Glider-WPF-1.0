@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <CheckBox x:Name="CheckBox_heading" Unchecked="CheckBox_heading_Unchecked" Checked="CheckBox_Checked" Content="01.01.2020" IsChecked="{Binding Done}" Style="{StaticResource MaterialDesignDarkCheckBox}"
+            <CheckBox x:Name="CheckBox_heading" Unchecked="CheckBox_heading_Unchecked" Checked="CheckBox_Checked" Content="{Binding DateReport}" IsChecked="{Binding Done}" Style="{StaticResource MaterialDesignDarkCheckBox}"
    VerticalAlignment="Top" Margin="15,5" Foreground="#FF385E69" FontSize="15" />
             <StackPanel Orientation="Horizontal" Margin="15,0">
                 <TextBlock  Margin="5,5,10,5"  Text="Revenue:" Foreground="#FF385E69" FontSize="15"  />
@@ -23,7 +23,7 @@
             </StackPanel>
             <Border x:Name="Border_cursor"  BorderBrush="LightGray" BorderThickness="1"  Margin="15,0,25,10">
                 <StackPanel>
-                    <TextBlock x:Name="TextBlockNote" Margin="5,5,10,5" TextWrapping="Wrap" Text="Аптека работала в штатном режиме. Поставщики приехали вовремя. Заказ был отправлен в 15:00 приемущественно Протеку(на 120000)."  FontSize="15"  />
+                    <TextBlock x:Name="TextBlockNote" Margin="5,5,10,5" TextWrapping="Wrap" Text="{Binding Notes}"  FontSize="15"  />
                 </StackPanel>
             </Border>
         </StackPanel>

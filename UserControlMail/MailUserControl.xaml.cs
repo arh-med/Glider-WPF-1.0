@@ -24,7 +24,6 @@ namespace Glider_WPF_1._0.UserControlMail
        
         string Login { get; set; }
         public List<User> Users { get; set; }
-        GliderDataContext gliderDataContext = GliderDataContext.Instance;
         public System.Windows.Threading.DispatcherTimer timer;
         public MailUserControl(string Login)
         {
@@ -66,7 +65,7 @@ namespace Glider_WPF_1._0.UserControlMail
             message.TimeMessage = DateTime.Now;
             message.Sender = Login;
             message.Recipient = ComboBoxRecipients.Text;
-            
+            GliderDataContext gliderDataContext = GliderDataContext.Instance;
             gliderDataContext.UserMail.Add(message);
             gliderDataContext.SaveChanges();
             Mails.Add(message);

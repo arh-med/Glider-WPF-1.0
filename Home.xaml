@@ -8,7 +8,7 @@
         xmlns:MatDes="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:UserControl="clr-namespace:Glider_WPF_1._0.UserControlRequest"
         xmlns:UserControl1="clr-namespace:Glider_WPF_1._0.UserControlSaver"
-        Title="Glider" Height="500" Width="800" WindowStartupLocation="CenterScreen" >
+        Title="Glider" Height="510" Width="800" WindowStartupLocation="CenterScreen" >
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -56,16 +56,16 @@
                 </StackPanel>
             </Grid>
         </MatDes:ColorZone>
-        <Grid x:Name="GridMenu"  Width="50" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Background="#FF79CBE3" Panel.ZIndex="1">
+        <Grid x:Name="GridMenu"  Width="200" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Background="#FF79CBE3" Panel.ZIndex="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="326*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Background="White">
-                <Button Visibility="Collapsed" x:Name="ButtonCloseMenu" Background="{x:Null}" BorderBrush="{x:Null}" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonCloseMenu_Click">
+                <Button  x:Name="ButtonCloseMenu" Background="{x:Null}" BorderBrush="{x:Null}" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonCloseMenu_Click">
                     <MatDes:PackIcon Kind="ArrowLeft" Foreground="#FF385E69" Height="25" Width="25" VerticalAlignment="Center" HorizontalAlignment="Center"  />
                 </Button>
-                <Button x:Name="ButtonOpenMenu" Background="{x:Null}" BorderBrush="{x:Null}" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonOpenMenu_Click">
+                <Button Visibility="Collapsed" x:Name="ButtonOpenMenu" Background="{x:Null}" BorderBrush="{x:Null}" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonOpenMenu_Click">
                     <MatDes:PackIcon Kind="Menu" Foreground="#FF385E69" Height="25" Width="25" VerticalAlignment="Center" HorizontalAlignment="Center"  />
                 </Button>
             </Grid>

@@ -99,15 +99,6 @@ namespace Glider_WPF_1._0.UserControlRequest
                 MessageBox.Show("Fill in the Nomination");
         }
 
-        private void ReminderButtonClickEventHandler(object sender, RoutedEventArgs e)
-        {
-
-            
-
-        }
-
-       
-
         private void PackIcon_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataGridRequest.ItemsSource = null;
