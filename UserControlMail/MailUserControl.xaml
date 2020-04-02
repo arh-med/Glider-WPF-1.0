@@ -45,8 +45,8 @@
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1" Background="White">
-                <ScrollViewer  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
-                    <StackPanel x:Name="StackPanelMessage">
+                <ScrollViewer x:Name="ScrollViewrMessage"  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" >
+                    <StackPanel x:Name="StackPanelMessage" >
                         
                     </StackPanel>
                 </ScrollViewer>

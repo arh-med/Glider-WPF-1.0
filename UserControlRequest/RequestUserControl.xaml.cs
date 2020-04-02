@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,6 +76,20 @@ namespace Glider_WPF_1._0.UserControlRequest
 
         private void RenameButtonClickEventHandler(object sender, RoutedEventArgs e)
         {
+            //Request requestDataGridSelect = DataGridRequest.SelectedCells[3].Item as Request;
+            //GliderDataContext gliderDataContext = GliderDataContext.Instance;
+            //requestDataGridSelect.Nomination = "Test2";
+            //gliderDataContext.Entry(requestDataGridSelect).State = EntityState.Modified;
+            //gliderDataContext.SaveChanges();
+
+
+            //using (GliderDataContext gliderDataContext = GliderDataContext.Instance)
+            //{
+            //    Request requestRename = gliderDataContext.Requests.FirstOrDefault(x => x.Nomination == requestDataGridSelect.Nomination);
+            //    requestRename.Nomination = "Test";
+            //}
+
+
             if (Nomination_txt.Text != "")
             {
                 RemoveButtonClickEventHandler(this, null);

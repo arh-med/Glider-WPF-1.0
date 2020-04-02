@@ -21,9 +21,11 @@ namespace Glider_WPF_1._0.UserControlMail
     public partial class MailUserControl : UserControl
     {
         public ObservableCollection<UserMail> Mails { get; set; }
+       
         string Login { get; set; }
         public List<User> Users { get; set; }
         GliderDataContext gliderDataContext = GliderDataContext.Instance;
+        public System.Windows.Threading.DispatcherTimer timer;
         public MailUserControl(string Login)
         {
             InitializeComponent();
@@ -34,11 +36,21 @@ namespace Glider_WPF_1._0.UserControlMail
             User this_user = gliderDataContext.Users.FirstOrDefault(u => u.Login == Login);
             Users.Remove(this_user);
             DataContext = this;
-            System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
+            timer = new System.Windows.Threading.DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 5);
             timer.Tick += (sender, e) =>
             {
-               
+
+                ObservableCollection<UserMail> MailsTimer = new ObservableCollection<UserMail>(GliderDataContext.Instance.UserMail.ToList());
+                foreach (UserMail item in MailsTimer)
+                {
+                    if (item.Recipient == Login && item.Done == false )
+                    {
+                        WindowMailMessage windowMailMessage = new WindowMailMessage(this,item);
+                        windowMailMessage.DataContext = item;
+                        windowMailMessage.Show();
+                    }
+                }
 
             };
             timer.Start();
@@ -48,64 +60,108 @@ namespace Glider_WPF_1._0.UserControlMail
 
         private void AddMessageButton(object sender, RoutedEventArgs e)
         {
-            User recCombobox = (User)ComboBoxRecipients.SelectedItem;
             UserMail message = new UserMail();
             message.Heading = Heading_txt.Text;
             message.BodyMessage = Message_txt.Text;
             message.TimeMessage = DateTime.Now;
             message.Sender = Login;
-            message.Recipient = ComboBoxRecipients.Text;           
+            message.Recipient = ComboBoxRecipients.Text;
+            
             gliderDataContext.UserMail.Add(message);
             gliderDataContext.SaveChanges();
             Mails.Add(message);
-            if (message.Sender == Login)
-            {
-                MessageUserControl messag = new MessageUserControl();
-                messag.DataContext = message;
-                messag.HorizontalAlignment = HorizontalAlignment.Right;
-                StackPanelMessage.Children.Add(messag);
-            }
-            else if (message.Sender == recCombobox.Login)
-            {
-                MessageRecipientsUserControl messag = new MessageRecipientsUserControl();
-                messag.DataContext = message;
-                messag.HorizontalAlignment = HorizontalAlignment.Left;
-                StackPanelMessage.Children.Add(messag);
-            }
+
+            MessageUserControl messag = new MessageUserControl();
+            messag.DataContext = message;
+            messag.HorizontalAlignment = HorizontalAlignment.Right;
+            StackPanelMessage.Children.Add(messag);
+
+            Heading_txt.Clear();
+            Message_txt.Clear();
+
+
         }
 
-       
+
 
         private void ComboBoxRecipients_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ObservableCollection<UserMail> MailsSort = new ObservableCollection<UserMail>(GliderDataContext.Instance.UserMail.ToList());
-            Mails.Clear();
-            User recCombobox = (User)ComboBoxRecipients.SelectedItem;
-            foreach (UserMail item in MailsSort)
+            if (ComboBoxRecipients.SelectedItem !=null)
             {
-                if (item.Sender == Login && item.Recipient == recCombobox.Login || item.Sender == recCombobox.Login && item.Recipient == Login)
-                    Mails.Add(item);
+                StackPanelMessage.Children.Clear();
+                ObservableCollection<UserMail> MailsSort = new ObservableCollection<UserMail>(GliderDataContext.Instance.UserMail.ToList());
+                Mails.Clear();
+                User recCombobox = (User)ComboBoxRecipients.SelectedItem;
+                foreach (UserMail item in MailsSort)
+                {
+                    if (item.Sender == Login && item.Recipient == recCombobox.Login || item.Sender == recCombobox.Login && item.Recipient == Login)
+                        Mails.Add(item);
+                }
+                foreach (UserMail item in Mails)
+                {
+                    if (item.Sender == Login)
+                    {
+                        MessageUserControl message = new MessageUserControl();
+                        message.DataContext = item;
+                        message.HorizontalAlignment = HorizontalAlignment.Right;
+                        StackPanelMessage.Children.Add(message);
+
+                    }
+                    else if (item.Sender == recCombobox.Login)
+                    {
+                        MessageRecipientsUserControl message = new MessageRecipientsUserControl();
+                        message.DataContext = item;
+                        message.HorizontalAlignment = HorizontalAlignment.Left;
+                        StackPanelMessage.Children.Add(message);
+
+                    }
+                }
             }
-            foreach (UserMail item in Mails)
+            else
             {
-                if (item.Sender == Login)
+                StackPanelMessage.Children.Clear();
+            }
+            ScrollViewrMessage.ScrollToBottom();
+
+        }
+        public void ComboBoxRecipients_SelectionChanged()
+        {
+            if (ComboBoxRecipients.Text != null)
+            {
+                StackPanelMessage.Children.Clear();
+                ObservableCollection<UserMail> MailsSort = new ObservableCollection<UserMail>(GliderDataContext.Instance.UserMail.ToList());
+                Mails.Clear();
+                User recCombobox = (User)ComboBoxRecipients.SelectedItem;
+                foreach (UserMail item in MailsSort)
                 {
-                    MessageUserControl message = new MessageUserControl();
-                    message.DataContext = item;
-                    message.HorizontalAlignment = HorizontalAlignment.Right;
-                    StackPanelMessage.Children.Add(message);
-                    
+                    if (item.Sender == Login && item.Recipient == recCombobox.Login || item.Sender == recCombobox.Login && item.Recipient == Login)
+                        Mails.Add(item);
                 }
-                else if (item.Sender == recCombobox.Login)
+                foreach (UserMail item in Mails)
                 {
-                    MessageRecipientsUserControl message = new MessageRecipientsUserControl();
-                    message.DataContext = item;
-                    message.HorizontalAlignment = HorizontalAlignment.Left;
-                    StackPanelMessage.Children.Add(message);
-                    
+                    if (item.Sender == Login)
+                    {
+                        MessageUserControl message = new MessageUserControl();
+                        message.DataContext = item;
+                        message.HorizontalAlignment = HorizontalAlignment.Right;
+                        StackPanelMessage.Children.Add(message);
+
+                    }
+                    else if (item.Sender == recCombobox.Login)
+                    {
+                        MessageRecipientsUserControl message = new MessageRecipientsUserControl();
+                        message.DataContext = item;
+                        message.HorizontalAlignment = HorizontalAlignment.Left;
+                        StackPanelMessage.Children.Add(message);
+
+                    }
                 }
             }
-            
+            else
+            {
+                StackPanelMessage.Children.Clear();
+            }
+            ScrollViewrMessage.ScrollToBottom();
         }
     }
 }
