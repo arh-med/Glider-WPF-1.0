@@ -162,5 +162,36 @@ namespace Glider_WPF_1._0.UserControlMail
             }
             ScrollViewrMessage.ScrollToBottom();
         }
+
+        private void SearchTextChanged(object sender, TextChangedEventArgs e)
+        {
+            User recCombobox = (User)ComboBoxRecipients.SelectedItem;
+            StackPanelMessage.Children.Clear();
+            string filter = txt_Search.Text;
+            for (int i = 0; i < Mails.Count; i++)
+            {
+                if (true == Mails[i].BodyMessage.ToUpper().StartsWith(filter.ToUpper()) && txt_Search.Text != "")
+                {
+                        if (Mails[i].Sender == Login)
+                        {
+                            MessageUserControl message = new MessageUserControl();
+                            message.DataContext = Mails[i];
+                            message.HorizontalAlignment = HorizontalAlignment.Right;
+                            StackPanelMessage.Children.Add(message);
+
+                        }
+                        else if (Mails[i].Sender == recCombobox.Login)
+                        {
+                            MessageRecipientsUserControl message = new MessageRecipientsUserControl();
+                            message.DataContext = Mails[i];
+                            message.HorizontalAlignment = HorizontalAlignment.Left;
+                            StackPanelMessage.Children.Add(message);
+                        }
+                    
+                }
+               
+            }
+
+        }
     }
 }

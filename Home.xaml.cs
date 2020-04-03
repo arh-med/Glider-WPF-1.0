@@ -1,11 +1,13 @@
 ﻿using Glider_WPF_1._0.UserControlMail;
 using Glider_WPF_1._0.UserControlReport;
 using Glider_WPF_1._0.UserControlRequest;
+using Glider_WPF_1._0.UserControlSaver;
 using Glider_WPF_1._0.UserControlTask;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +28,7 @@ namespace Glider_WPF_1._0
         TaskUserControl task;
         MailUserControl mailUser;
         ReportUserControl report;
+        SupportUserControl supportUser; 
         public Home(string Login)
         {
             InitializeComponent();
@@ -33,6 +36,10 @@ namespace Glider_WPF_1._0
             task = new TaskUserControl(Login);
             mailUser = new MailUserControl(Login);
             report = new ReportUserControl(Login);
+            supportUser = new SupportUserControl();
+
+
+
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
@@ -51,6 +58,9 @@ namespace Glider_WPF_1._0
         {
             GridAddUserControl.Children.Clear();
             GridAddUserControl.Children.Add(request);
+            if (GridMenu.Width == 200)
+                 this.ButtonCloseMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            
         }
 
    
@@ -58,18 +68,32 @@ namespace Glider_WPF_1._0
         {
             GridAddUserControl.Children.Clear();
             GridAddUserControl.Children.Add(task);
+            if (GridMenu.Width == 200)
+                this.ButtonCloseMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
         private void MailMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             GridAddUserControl.Children.Clear();
             GridAddUserControl.Children.Add(mailUser);
+            if (GridMenu.Width == 200)
+                this.ButtonCloseMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
         private void ReportMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             GridAddUserControl.Children.Clear();
             GridAddUserControl.Children.Add(report);
+            if (GridMenu.Width == 200)
+                this.ButtonCloseMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+        }
+
+        private void SupportMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            GridAddUserControl.Children.Clear();
+            GridAddUserControl.Children.Add(supportUser);
+            if (GridMenu.Width == 200)
+                this.ButtonCloseMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
     }
 }

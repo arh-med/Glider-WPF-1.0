@@ -104,7 +104,7 @@
                         </ListViewItem>
                     </ListView>
                     <ListView>
-                        <ListViewItem Height="60">
+                        <ListViewItem MouseLeftButtonUp="SupportMouseLeftButtonUp"  Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <MatDes:PackIcon Margin="5,10" Foreground="#FF385E69" Kind="ProgressWrench" Height="25" Width="25" VerticalAlignment="Center"/>
                                 <TextBlock Margin="20 10" VerticalAlignment="Center" Foreground="#FF385E69" Text="Support" FontFamily="Cambria Math" FontSize="16"/>

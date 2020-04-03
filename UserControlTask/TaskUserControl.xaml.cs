@@ -161,5 +161,24 @@ namespace Glider_WPF_1._0.UserControlTask
             Tasks.Add(task);
 
         }
+
+        private void SearchTextChanged(object sender, TextChangedEventArgs e)
+        {
+            string filter = txt_Search.Text;
+            for (int i = 0; i < Tasks.Count; i++)
+            {
+                if (true == Tasks[i].Tast.ToUpper().StartsWith(filter.ToUpper()) && txt_Search.Text != "")
+                {
+                    Tasks[i].Done = true;
+                    
+                }
+                else
+                {
+                    Tasks[i].Done = false;
+                }
+            }
+            ItemsControlTask.ItemsSource = null;
+            ItemsControlTask.ItemsSource = Tasks;
+        }
     }
 }
