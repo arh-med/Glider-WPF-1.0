@@ -52,7 +52,7 @@ namespace Glider_WPF_1._0.UserControlRequest
                 Requests.Add(request);
             }
             else
-                MessageBox.Show("Fill in the Nomination");
+                MessageBox.Show("Заполните поля");
 
             Nomination_txt.Clear();
             Quanti_txt.Clear();
@@ -71,7 +71,7 @@ namespace Glider_WPF_1._0.UserControlRequest
                 Requests.Remove(requestDataGridSelect);
             }
             catch
-            { MessageBox.Show("Select the row to delete"); }
+            { MessageBox.Show("Выберите строку для удаления"); }
         }
 
         private void RenameButtonClickEventHandler(object sender, RoutedEventArgs e)
@@ -96,7 +96,7 @@ namespace Glider_WPF_1._0.UserControlRequest
                 AddButtonClickEventHandler(this, null);
             }
             else
-                MessageBox.Show("Fill in the Nomination");
+                MessageBox.Show("Заполните поля");
         }
 
         private void PackIcon_MouseDoubleClick(object sender, MouseButtonEventArgs e)

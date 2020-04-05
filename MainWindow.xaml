@@ -12,18 +12,18 @@
         <DockPanel Width="320" Height="420" HorizontalAlignment="Right" >
             <Image Source="./Picure/Logo.jpg"  />
         </DockPanel>
-        <StackPanel Height="100" Width="200" Margin="30,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Label Content="Login"  Width="100" Height="40" HorizontalAlignment="Left" FontSize="22" FontWeight="Bold"/>
-            <Label Name="lable_txt"  Content="Welcome, log in with your account" HorizontalAlignment="Left"  FontSize="12"  />
-            <Label Margin="4,0,0,0"  Background="#FF93D6E9" HorizontalAlignment="Left"  Width="183" Height="5"/>
+        <StackPanel Height="100" Width="238" Margin="30,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label Content="Добро пожаловать"  Width="215" Height="40" HorizontalAlignment="Left" FontSize="22" FontWeight="Bold"/>
+            <Label Name="lable_txt"  Content="Войдите под своей учетной записью" HorizontalAlignment="Left"  FontSize="12"  />
+            <Label Margin="4,0,0,0"  Background="#FF93D6E9" HorizontalAlignment="Left"  Width="204" Height="5"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Height="57" Width="200" Margin="30,0,0,218" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <materialDesign:PackIcon Kind="Account" Width="20" Height="20" Foreground="{Binding ElementName=txt_Login,Path=BorderBrush}" Margin="0,19"/>
-            <TextBox  x:Name="txt_Login" materialDesign:HintAssist.Hint="Login" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="170" Text="{Binding LoginText}" />
+            <TextBox  x:Name="txt_Login" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="170" Text="{Binding LoginText}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Height="57" Width="200" Margin="30,0,0,160" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <materialDesign:PackIcon Kind="Key" Width="20" Height="20" Foreground="{Binding ElementName=txt_Password,Path=BorderBrush}" Margin="0,19"/>
-            <PasswordBox  x:Name="txt_Password" VerticalAlignment="Top" materialDesign:HintAssist.Hint="Password"
+            <PasswordBox  x:Name="txt_Password" VerticalAlignment="Top" materialDesign:HintAssist.Hint="Пароль"
       Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="170" PasswordChanged="txt_Password_PasswordChanged" />
         </StackPanel>
         <ToggleButton Click="ToggleButton_Exit"  VerticalAlignment="Top" HorizontalAlignment="Right"
@@ -31,12 +31,12 @@
   ToolTip="MaterialDesignFlatToggleButton" Height="20" Width="20">
           <materialDesign:PackIcon Kind="Close" Height="20" Width="20" />
         </ToggleButton>
-        <CheckBox IsChecked="{Binding CheckRem}"  x:Name="CheckRemember" FontSize="9" HorizontalAlignment="Left" Foreground="{Binding ElementName=txt_User,Path=BorderBrush}" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignCheckBox}" Margin="30,0,0,137" Width="90">Remember</CheckBox>
-        <Button  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="120,0,0,132" FontSize="9" Content="Need help?" Style="{StaticResource MaterialDesignFlatButton}" ToolTip="MaterialDesignFlatButton" Height="25" Width="100"/>
-        <Button  HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Login" Width="70" 
+        <CheckBox IsChecked="{Binding CheckRem}"  x:Name="CheckRemember" FontSize="9" HorizontalAlignment="Left" Foreground="{Binding ElementName=txt_User,Path=BorderBrush}" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignCheckBox}" Margin="30,0,0,137" Width="90">Запомнить</CheckBox>
+        <Button  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="120,0,0,132" FontSize="9" Content="Помошь" Style="{StaticResource MaterialDesignFlatButton}" ToolTip="MaterialDesignFlatButton" Height="25" Width="100" Click="Button_Click"/>
+        <Button  HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Вход" Width="70" 
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9" Margin="30,0,0,90" BorderBrush="#FF93D6E9" RenderTransformOrigin="1.108,0.344" Command="{Binding LoginCommand}"  />
-        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Registration" Width="105"
+        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Регистрация" Width="105"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9" Margin="115,0,0,90" BorderBrush="#FF93D6E9" Click="RegButtonClick" />
 

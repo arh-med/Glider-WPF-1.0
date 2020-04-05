@@ -45,5 +45,7 @@ namespace Glider_WPF_1._0
         {
             this.Close();
         }
+
+        
     }
 }

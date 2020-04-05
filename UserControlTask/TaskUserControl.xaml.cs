@@ -80,7 +80,7 @@ namespace Glider_WPF_1._0.UserControlTask
             catch 
             {
 
-                MessageBox.Show("Fill in all lines");
+                MessageBox.Show("Заполните поля");
             }
             Heading_txt.Text = "";
             Task_txt.Text = "";

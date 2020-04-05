@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Glider_WPF_1._0.Properties;
-
+using Glider_WPF_1._0.UserControlSaver;
 
 namespace Glider_WPF_1._0
 {
@@ -62,13 +62,19 @@ namespace Glider_WPF_1._0
 
         private void Login_Failed(object sender, EventArgs e)
         {
-            lable_txt.Content = "Incorrect username or password";
+            lable_txt.Content = "Неправильное имя или пароль";
         }
         private void Login_Succeded(object sender, EventArgs e)
         {
             Home home = new Home( _mainWindowViewModel.LoginText);
             home.Show();
             this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Support support = new Support();
+            support.Show();
         }
     }
 }

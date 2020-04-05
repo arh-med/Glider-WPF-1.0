@@ -56,7 +56,7 @@ namespace Glider_WPF_1._0.UserControlReport
             }
             else
             {
-                MessageBox.Show("Fill in all lines");
+                MessageBox.Show("Заполните поля");
             }
             Revenue_txt.Clear();
             Order_txt.Clear();

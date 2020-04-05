@@ -1,0 +1,24 @@
+﻿<Window x:Class="Glider_WPF_1._0.UserControlSaver.Support"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Glider_WPF_1._0.UserControlSaver"
+        mc:Ignorable="d"
+        Title="Support" Height="400" Width="550" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid Background="#FF79CBE3">
+        <ToggleButton Click="ToggleButton_Click"  VerticalAlignment="Top" HorizontalAlignment="Right"
+  Style="{StaticResource MaterialDesignFlatToggleButton}"
+  ToolTip="MaterialDesignFlatToggleButton" Height="20" Width="20">
+            <materialDesign:PackIcon Kind="Close" Height="20" Width="20" />
+        </ToggleButton >
+        <StackPanel Margin="0,50,0,0">
+            <TextBlock Foreground="#FF385E69" FontSize="25" Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="Техническая поддержка:" Margin="90,5,0,0" />
+            <TextBlock Foreground="#FF385E69"  Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Text="Телефон: +7(909)978-94-79" FontSize="15" Margin="120,5,0,0" />
+            <TextBlock Foreground="#FF385E69" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Text="EMAIL: arh_med@mail.ru" FontSize="15" Margin="120,5,0,0" />
+            <Image Source="../Picure/technical.png" VerticalAlignment="Bottom" Height="200" Margin="5,5,5,20"/>
+            <TextBlock Foreground="#FF385E69" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Text="© Copyright 2020 Rotarenco Andrei  " FontSize="15" Margin="20,5,40,0" HorizontalAlignment="Right" />
+        </StackPanel>
+    </Grid>
+</Window>

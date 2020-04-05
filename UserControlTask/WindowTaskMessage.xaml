@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Glider_WPF_1._0.UserControlTask"
         xmlns:MatDes="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Task" Height="350" Width="450" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen" Topmost="True">
+        Title="Задача" Height="350" Width="450" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen" Topmost="True">
     <DockPanel>
         <ScrollViewer  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" DockPanel.Dock="Top" >
             <StackPanel>
@@ -19,17 +19,17 @@
                 </ItemsControl>
                 <DockPanel  Background="#FF79CBE3" MinHeight="220" >
                     <StackPanel  DockPanel.Dock="Top">
-                        <TextBox x:Name="Heading_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Heading" FontSize="14" Margin="10"/>
-                        <TextBox x:Name="Task_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Task" FontSize="14" Margin="10"
+                        <TextBox x:Name="Heading_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Заголовок" FontSize="14" Margin="10"/>
+                        <TextBox x:Name="Task_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Задача" FontSize="14" Margin="10"
                      MaxHeight="120" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" />
                         <StackPanel Orientation="Horizontal" MinHeight="40">
-                            <DatePicker Name="Data_txt" Width="130" MatDes:HintAssist.Hint="Pick Date"  HorizontalAlignment="Left" Margin="10,0" />
-                            <MatDes:TimePicker  Is24Hours="True" x:Name="PresetTimePicker" Width="130"  HorizontalAlignment="Left" Margin="20,0"   />
+                            <DatePicker Name="Data_txt" Width="130" MatDes:HintAssist.Hint="Дата"  HorizontalAlignment="Left" Margin="10,0" />
+                            <MatDes:TimePicker  Is24Hours="True" x:Name="PresetTimePicker" Width="130"  HorizontalAlignment="Left" Margin="20,0" MatDes:HintAssist.Hint="Время"  />
                         </StackPanel>
                         <UniformGrid DockPanel.Dock="Bottom" VerticalAlignment="Top" Margin="10,0" Rows="1" >
-                            <Button  FontSize="12" Content="Done" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            <Button  FontSize="12" Content="Выполнено" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
     ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Click="DoneButtonClik" />
-                            <Button  FontSize="12" Content="Rename" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            <Button  FontSize="12" Content="Исправить " Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
     ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Click="RenameButtonClick" />
                         </UniformGrid>
                     </StackPanel>

@@ -12,13 +12,13 @@
             <CheckBox x:Name="CheckBox_heading" Unchecked="CheckBox_heading_Unchecked" Checked="CheckBox_Checked" Content="{Binding DateReport}" IsChecked="{Binding Done}" Style="{StaticResource MaterialDesignDarkCheckBox}"
    VerticalAlignment="Top" Margin="15,5" Foreground="#FF385E69" FontSize="15" />
             <StackPanel Orientation="Horizontal" Margin="15,0">
-                <TextBlock  Margin="5,5,10,5"  Text="Revenue:" Foreground="#FF385E69" FontSize="15"  />
+                <TextBlock  Margin="5,5,10,5"  Text="Выручка:" Foreground="#FF385E69" FontSize="15"  />
                 <TextBlock x:Name="TextBlockRevenue" Margin="0,5,10,5"  Text="{Binding Revenue}"  FontSize="15" MinWidth="50" />
-                <TextBlock  Margin="5,5,10,5" Text="Order:" Foreground="#FF385E69" FontSize="15"/>
+                <TextBlock  Margin="5,5,10,5" Text="Прибыль:" Foreground="#FF385E69" FontSize="15"/>
                 <TextBlock x:Name="TextBlockOrder" Margin="0,5,10,5"  Text="{Binding Order}"  FontSize="15" MinWidth="50"/>
-                <TextBlock  Margin="5,5,10,5"  Text="Checks:" Foreground="#FF385E69" FontSize="15" />
+                <TextBlock  Margin="5,5,10,5"  Text="Чеки:" Foreground="#FF385E69" FontSize="15" />
                 <TextBlock x:Name="TextBlockChecks" Margin="0,5,10,5"  Text="{Binding Checks}"  FontSize="15" MinWidth="50"/>
-                <TextBlock  Margin="5,5,10,5"  Text="ChecksAmount:" Foreground="#FF385E69" FontSize="15" />
+                <TextBlock  Margin="5,5,10,5"  Text="Средний Чек:" Foreground="#FF385E69" FontSize="15" />
                 <TextBlock x:Name="TextBlockChecksAmount" Margin="0,5,10,5"  Text="{Binding ChecksAmount}"  FontSize="15" MinWidth="50"/>
             </StackPanel>
             <Border x:Name="Border_cursor"  BorderBrush="LightGray" BorderThickness="1"  Margin="15,0,25,10">

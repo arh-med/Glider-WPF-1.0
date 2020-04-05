@@ -20,15 +20,15 @@
                 </StackPanel>
                 <DockPanel  Background="#FF79CBE3" MinHeight="220" >
                     <StackPanel  DockPanel.Dock="Top">
-                        <TextBox x:Name="Heading_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Heading" FontSize="14" Margin="10"/>
-                        <TextBox x:Name="Message_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Message" FontSize="14" Margin="10"
+                        <TextBox x:Name="Heading_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Подпись" FontSize="14" Margin="10"/>
+                        <TextBox x:Name="Message_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Сообщение" FontSize="14" Margin="10"
                      MaxHeight="120" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" />
                         <UniformGrid DockPanel.Dock="Bottom" VerticalAlignment="Top" Margin="10,25" Rows="1" >
                             <Button  FontSize="12" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Content="Done" Click="ButtonClickDone" />
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Content="Почитано" Click="ButtonClickDone" />
 
 
-                            <Button  FontSize="12" Content="Send" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            <Button  FontSize="12" Content="Отправить" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
     ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Click="ButtonClickSend"  />
                         </UniformGrid>
                     </StackPanel>
