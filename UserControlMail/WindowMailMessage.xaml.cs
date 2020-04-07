@@ -29,10 +29,13 @@ namespace Glider_WPF_1._0.UserControlMail
         public WindowMailMessage( MailUserControl mailUserControl, UserMail message)
         {
             InitializeComponent();
-            this.mailUserControl = mailUserControl;
-            this.message = message;
-            this.mailUserControl.timer.Stop();
-            this.mailUserControl.ComboBoxRecipients_SelectionChanged();
+                this.mailUserControl = mailUserControl;
+                this.message = message;
+                DataContext = this.message;
+                this.mailUserControl.timer.Stop();
+                this.mailUserControl.ComboBoxRecipients_SelectionChanged();
+
+
 
 
         }
@@ -43,6 +46,7 @@ namespace Glider_WPF_1._0.UserControlMail
             gliderDataContext.Entry(message).State = EntityState.Modified;
             gliderDataContext.SaveChanges();
             mailUserControl.timer.Start();
+            
             this.Close();
            
         }

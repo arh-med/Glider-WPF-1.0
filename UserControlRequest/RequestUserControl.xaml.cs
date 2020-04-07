@@ -22,18 +22,35 @@ namespace Glider_WPF_1._0.UserControlRequest
     public partial class RequestUserControl : UserControl
     {
         public ObservableCollection<Request> Requests { get; set; } // Колекция катороя оповещяет об изменение....
-        string Login { get; set; }
-        public RequestUserControl(string Login)
+        string Company { get; set; }
+        public RequestUserControl(string company)
         {
             InitializeComponent();
             Requests = new ObservableCollection<Request>();
-            this.Login = Login;
+            this.Company = company;
             ObservableCollection<Request> RequestsSort = new ObservableCollection<Request>(GliderDataContext.Instance.Requests.ToList());
             foreach (Request req in RequestsSort)
-            { if (req.Login ==Login)
+            { if (req.Company == Company)
                     Requests.Add(req);  }        
             DataContext = this;
-            
+            System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 1, 0);
+            timer.Tick += (sender, e) =>
+            {
+                DataGridRequest.ItemsSource = null;
+                RequestsSort.Clear();
+                RequestsSort = new ObservableCollection<Request>(GliderDataContext.Instance.Requests.ToList());
+                Requests.Clear();
+                foreach (Request req in RequestsSort)
+                {
+                    if (req.Company == Company)
+                        Requests.Add(req);
+                }
+                //Requests = new ObservableCollection<Request>(GliderDataContext.Instance.Requests.ToList());
+                DataGridRequest.ItemsSource = Requests;
+            };
+            timer.Start();
+
         }
 
         private void AddButtonClickEventHandler(object sender, RoutedEventArgs e)
@@ -44,7 +61,7 @@ namespace Glider_WPF_1._0.UserControlRequest
                 request.Nomination = Nomination_txt.Text;
                 request.Quantity = Quanti_txt.Text;
                 request.CustomerPhone = CustomerPhone_txt.Text;
-                request.Login = Login;
+                request.Company = Company;
                 GliderDataContext gliderDataContext = GliderDataContext.Instance;
                 gliderDataContext.Requests.Add(request);
                 gliderDataContext.SaveChanges();
@@ -106,7 +123,7 @@ namespace Glider_WPF_1._0.UserControlRequest
             Requests.Clear();
             foreach (Request req in RequestsSort)
             {
-                if (req.Login == Login)
+                if (req.Company == Company)
                     Requests.Add(req);
             }
             //Requests = new ObservableCollection<Request>(GliderDataContext.Instance.Requests.ToList());

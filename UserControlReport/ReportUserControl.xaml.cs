@@ -23,15 +23,15 @@ namespace Glider_WPF_1._0.UserControlReport
     public partial class ReportUserControl : UserControl
     {
         public ObservableCollection<Report> Reports { get; set; }
-        string Login { get; set; }
-        public ReportUserControl(string Login )
+        string Company { get; set; }
+        public ReportUserControl(string company )
         {
             InitializeComponent();
-            this.Login = Login;
+            this.Company = company;
             Reports = new ObservableCollection<Report>(GliderDataContext.Instance.Report.ToList());
             foreach (Report retort in Reports)
             {
-                if (retort.Login == Login)
+                if (retort.Company == Company)
                     Reports.Add(retort);
             }
             DataContext = this;
@@ -48,7 +48,7 @@ namespace Glider_WPF_1._0.UserControlReport
                 report.ChecksAmount = ChecksAmount_txt.Text;
                 report.Notes = Notes_txt.Text;
                 report.DateReport = DateTime.Now;
-                report.Login = this.Login;
+                report.Company = this.Company;
                 GliderDataContext gliderDataContext = GliderDataContext.Instance;
                 gliderDataContext.Report.Add(report);
                 gliderDataContext.SaveChanges();
@@ -83,7 +83,7 @@ namespace Glider_WPF_1._0.UserControlReport
             Reports.Clear();
             foreach (Report retort in Reports)
             {
-                if (retort.Login == Login)
+                if (retort.Company == Company)
                     Reports.Add(retort);
             }
             DataContext = this;

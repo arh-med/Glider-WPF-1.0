@@ -20,32 +20,25 @@ namespace Glider_WPF_1._0
     /// </summary>
     public partial class Registration : Window
     {
+        private RegistrationViewModel registrationViewModel;
         public Registration()
         {
             InitializeComponent();
+            registrationViewModel = new RegistrationViewModel();
+            DataContext = registrationViewModel;
         }
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
-
-        private void Button_Reg(object sender, RoutedEventArgs e)
-        {
-            User user = new User();
-            user.Login = txt_User.Text;
-            user.Password = txt_Password.Password;
-            user.Company = txt_Company.Text;
-            user.Address = txt_Adress.Text;
-            GliderDataContext gliderDataContext = GliderDataContext.Instance;
-            gliderDataContext.Users.Add(user);
-            gliderDataContext.SaveChanges();
-        }
-
         private void ToggleButton_Exit(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Close();  
         }
 
-        
+        private void PasswordPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            registrationViewModel.Password = ((PasswordBox)sender).Password;
+        }
     }
 }

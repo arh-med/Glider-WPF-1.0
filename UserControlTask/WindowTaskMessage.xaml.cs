@@ -20,30 +20,31 @@ namespace Glider_WPF_1._0.UserControlTask
     {
         public List<Task> Tasks { get; set; }
         TaskUserControl taskUserControl;
+        WindowTaskMessageViewModel windowTaskMessageViewModel;
         public WindowTaskMessage(Task task, TaskUserControl taskUserControl)
         {
             InitializeComponent();
-
+            windowTaskMessageViewModel = new WindowTaskMessageViewModel(task, taskUserControl, this);
             Tasks = new List<Task>();
             Tasks.Add(task);
             ItemsControlTask.ItemsSource = Tasks;
             this.taskUserControl = taskUserControl;
-            Heading_txt.Text = task.Heading;
-            Task_txt.Text = task.Tast;
-            Data_txt.SelectedDate = task.Alarm;
-            PresetTimePicker.SelectedTime = task.Alarm;
+            //Heading_txt.Text = task.Heading;
+            //Task_txt.Text = task.Tast;
+            //Data_txt.SelectedDate = task.Alarm;
+            //PresetTimePicker.SelectedTime = task.Alarm;
         }
 
-        private void DoneButtonClik(object sender, RoutedEventArgs e)
-        {
-            Task taskWindow = null;
-            foreach (Task item in Tasks)
-            {
-                taskWindow = item;
-            }
-            taskUserControl.RemoveButtonClick(taskWindow);
-            this.Close();
-        }
+        //private void DoneButtonClik(object sender, RoutedEventArgs e)
+        //{
+        //    Task taskWindow = null;
+        //    foreach (Task item in Tasks)
+        //    {
+        //        taskWindow = item;
+        //    }
+        //    taskUserControl.RemoveButtonClick(taskWindow);
+        //    this.Close();
+        //}
 
         private void RenameButtonClick(object sender, RoutedEventArgs e)
         {

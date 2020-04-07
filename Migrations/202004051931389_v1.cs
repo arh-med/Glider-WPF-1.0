@@ -19,7 +19,7 @@
                         ChecksAmount = c.String(unicode: false),
                         Notes = c.String(unicode: false),
                         Done = c.Boolean(nullable: false),
-                        Login = c.String(unicode: false),
+                        Company = c.String(unicode: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -31,7 +31,7 @@
                         Nomination = c.String(unicode: false),
                         Quantity = c.String(unicode: false),
                         CustomerPhone = c.String(unicode: false),
-                        Login = c.String(unicode: false),
+                        Company = c.String(unicode: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -71,6 +71,7 @@
                         Password = c.String(unicode: false),
                         Company = c.String(unicode: false),
                         Address = c.String(unicode: false),
+                        Run = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Login);
             

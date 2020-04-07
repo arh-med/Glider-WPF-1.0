@@ -25,6 +25,7 @@ namespace Glider_WPF_1._0.UserControlMail
         string Login { get; set; }
         public List<User> Users { get; set; }
         public System.Windows.Threading.DispatcherTimer timer;
+        UserMail userSender; 
         public MailUserControl(string Login)
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace Glider_WPF_1._0.UserControlMail
             User this_user = gliderDataContext.Users.FirstOrDefault(u => u.Login == Login);
             Users.Remove(this_user);
             DataContext = this;
+            userSender = new UserMail();
             timer = new System.Windows.Threading.DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 5);
             timer.Tick += (sender, e) =>
@@ -45,8 +47,8 @@ namespace Glider_WPF_1._0.UserControlMail
                 {
                     if (item.Recipient == Login && item.Done == false )
                     {
+                        userSender.Sender = item.Sender;
                         WindowMailMessage windowMailMessage = new WindowMailMessage(this,item);
-                        windowMailMessage.DataContext = item;
                         windowMailMessage.Show();
                     }
                 }
@@ -127,13 +129,13 @@ namespace Glider_WPF_1._0.UserControlMail
         {
             if (ComboBoxRecipients.Text != null)
             {
+                ComboBoxRecipients.Text = userSender.Sender;
                 StackPanelMessage.Children.Clear();
                 ObservableCollection<UserMail> MailsSort = new ObservableCollection<UserMail>(GliderDataContext.Instance.UserMail.ToList());
                 Mails.Clear();
-                User recCombobox = (User)ComboBoxRecipients.SelectedItem;
                 foreach (UserMail item in MailsSort)
                 {
-                    if (item.Sender == Login && item.Recipient == recCombobox.Login || item.Sender == recCombobox.Login && item.Recipient == Login)
+                    if (item.Sender == Login && item.Recipient == ComboBoxRecipients.Text || item.Sender == ComboBoxRecipients.Text && item.Recipient == Login)
                         Mails.Add(item);
                 }
                 foreach (UserMail item in Mails)
@@ -146,7 +148,7 @@ namespace Glider_WPF_1._0.UserControlMail
                         StackPanelMessage.Children.Add(message);
 
                     }
-                    else if (item.Sender == recCombobox.Login)
+                    else if (item.Sender == ComboBoxRecipients.Text)
                     {
                         MessageRecipientsUserControl message = new MessageRecipientsUserControl();
                         message.DataContext = item;

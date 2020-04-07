@@ -16,7 +16,7 @@ namespace Glider_WPF_1._0
         public string ChecksAmount { get; set; }
         public string Notes { get; set; }
         public bool Done { get; set; }
-        public string Login { get; set; }
+        public string Company { get; set; }
 
     }
 }
