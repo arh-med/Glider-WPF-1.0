@@ -11,10 +11,55 @@ namespace Glider_WPF_1._0
 {
     class RegistrationViewModel : ViewModel 
     {
-        public string User { get; set; }
-        public string Password { get; set; }
-        public string Company { get; set; }
-        public string Adress { get; set; }
+        Registration registration;
+        private string user;
+        private string password;
+        private string company;
+        private string adress;
+        public string User
+        {
+            get
+            {
+                return user;
+            }
+            set
+            {
+                Set(ref user, value);
+            }
+        }
+        public string Password
+        {
+            get
+            {
+                return password;
+            }
+            set
+            {
+                Set(ref password, value);
+            }
+        }
+        public string Company
+        {
+            get
+            {
+                return company;
+            }
+            set
+            {
+                Set(ref company, value);
+            }
+        }
+        public string Adress
+        {
+            get
+            {
+                return adress;
+            }
+            set
+            {
+                Set(ref adress, value);
+            }
+        }
         private ICommand registrationUser;
         public ICommand RegistrationUser
         {
@@ -26,9 +71,18 @@ namespace Glider_WPF_1._0
                    GliderDataContext gliderDataContext = GliderDataContext.Instance;
                    gliderDataContext.Users.Add(user);
                    gliderDataContext.SaveChanges();
-
+                   User = "";
+                   Password = "";
+                   Company = "";
+                   Adress = "";
+                   registration.Close();
                }));
             }
+        }
+
+        public RegistrationViewModel(Registration registration)
+        {
+           this.registration = registration;
         }
     }
 }

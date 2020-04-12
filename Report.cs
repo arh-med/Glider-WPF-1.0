@@ -18,5 +18,20 @@ namespace Glider_WPF_1._0
         public bool Done { get; set; }
         public string Company { get; set; }
 
+        public Report (string revenue, string order, string checks, string checksAmount, string notes, string company)
+        {
+            DateReport = DateTime.Now;
+            Revenue = revenue;
+            Order = order;
+            Checks = checks;
+            ChecksAmount = checksAmount;
+            Notes = notes;
+            Company = company;
+        }
+        public Report()
+        {
+
+        }
+
     }
 }

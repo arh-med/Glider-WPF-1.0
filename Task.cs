@@ -11,5 +11,16 @@ namespace Glider_WPF_1._0
         public DateTime Replay { get; set; }
         public bool Done { get; set; }
         public string Login { get; set; }
+        public Task(string heading,string task,DateTime alarm, string login)
+        {
+            Heading = heading;
+            Tast = task;
+            Alarm = alarm;
+            Login = login;
+        }
+        public Task()
+        {
+
+        }
     }
 }

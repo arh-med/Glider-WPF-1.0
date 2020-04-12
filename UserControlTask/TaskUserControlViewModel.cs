@@ -15,15 +15,56 @@ namespace Glider_WPF_1._0.UserControlTask
     
     class TaskUserControlViewModel : ViewModel
     {
-        
         TaskUserControl taskUserControl;
-        string Search { get; set; }
-        string Heading { get; set; }
-        string Task { get; set; }
-        DateTime Data { get; set; }
-        DateTime Time { get; set; }
+        private string heading;
+        private string task;
+        private DateTime data = DateTime.Now;
+        private DateTime time = DateTime.Now;
+        public string Heading 
+        {
+            get
+            {
+                return heading;
+            }
+            set
+            {
+                Set(ref heading, value);
+            }
+        }
+        public string Task 
+        {
+            get
+            {
+                return task;
+            }
+            set
+            {
+                Set(ref task, value);
+            } 
+        }
+        public DateTime Data 
+        {
+            get
+            {
+                return data;
+            }
+            set
+            {
+                Set(ref data, value);
+            }
+        }
+        public DateTime Time 
+        {
+            get
+            {
+                return time;
+            }
+            set
+            {
+                Set(ref time, value);
+            }
+        }
         public EventHandler eventTimer;
-        public EventHandler eventSearch;
         private ObservableCollection<Task> tasks = new ObservableCollection<Task>();
         public ObservableCollection<Task> Tasks
         {
@@ -31,15 +72,7 @@ namespace Glider_WPF_1._0.UserControlTask
             {
                 return tasks;
             }
-            set
-            {
-                ObservableCollection<Task> TaskSort = new ObservableCollection<Task>(GliderDataContext.Instance.Tasks.ToList());
-                foreach (Task tas in TaskSort)
-                {
-                    if (tas.Login == taskUserControl.Login)
-                        tasks.Add(tas);
-                }
-            }
+            
         }
         private ICommand addTask;
         public ICommand AddTask
@@ -50,21 +83,22 @@ namespace Glider_WPF_1._0.UserControlTask
                 {
                     try
                     {
-                        Task task = new Task();
-                        task.Heading = Heading;
-                        task.Tast = Task;
-
+                        tasks.Clear();
+                        ObservableCollection<Task> TaskSort = new ObservableCollection<Task>(GliderDataContext.Instance.Tasks.ToList());
+                        foreach (Task tas in TaskSort)
+                        {
+                            if (tas.Login == taskUserControl.Login)
+                                tasks.Add(tas);
+                        }
+                        taskUserControl.ItemsControlTask.ItemsSource = Tasks;
                         DateTime? date = Data;
                         DateTime? time = Time;
-
                         DateTime dateTime = new DateTime(date.Value.Year, date.Value.Month, date.Value.Day, time.Value.Hour, time.Value.Minute, time.Value.Second);
-                        task.Alarm = dateTime;
-                        task.Login = taskUserControl.Login;
+                        Task task = new Task(Heading, Task, dateTime, taskUserControl.Login);
                         GliderDataContext gliderDataContext = GliderDataContext.Instance;
                         gliderDataContext.Tasks.Add(task);
                         gliderDataContext.SaveChanges();
-
-                        Tasks.Add(task);
+                        tasks.Add(task);
                     }
                     catch
                     {
@@ -73,8 +107,8 @@ namespace Glider_WPF_1._0.UserControlTask
                     }
                     Heading = "";
                     Task = "";
-                    Data = new DateTime();
-                    Time = new DateTime();
+                    Data = DateTime.Now;
+                    Time = DateTime.Now;
                 }));
                 
             }
@@ -99,12 +133,12 @@ namespace Glider_WPF_1._0.UserControlTask
                             }
                         }
                         taskUserControl.ItemsControlTask.ItemsSource = null; 
-                        Tasks.Clear();
+                        tasks.Clear();
                         ObservableCollection<Task> TaskSort = new ObservableCollection<Task>(GliderDataContext.Instance.Tasks.ToList());
                         foreach (Task tas in TaskSort)
                         {
                             if (tas.Login == taskUserControl.Login)
-                                Tasks.Add(tas);
+                                tasks.Add(tas);
                         }
                         taskUserControl.ItemsControlTask.ItemsSource = Tasks;
                     }
@@ -142,6 +176,12 @@ namespace Glider_WPF_1._0.UserControlTask
         public TaskUserControlViewModel(TaskUserControl taskUserControl)
         {
             this.taskUserControl = taskUserControl;
+            ObservableCollection<Task> TaskSort = new ObservableCollection<Task>(GliderDataContext.Instance.Tasks.ToList());
+            foreach (Task tas in TaskSort)
+            {
+                if (tas.Login == taskUserControl.Login)
+                    tasks.Add(tas);
+            }
             eventTimer = (sender, e) =>
             {
                 foreach (Task task in Tasks)
@@ -151,30 +191,12 @@ namespace Glider_WPF_1._0.UserControlTask
                     DateTime dateTimeEqual = new DateTime(dateTimeNow.Year, dateTimeNow.Month, dateTimeNow.Day, dateTimeNow.Hour, dateTimeNow.Minute, 0);
                     if (dateTimeAlarm <= dateTimeEqual)
                     {
-                        WindowTaskMessage windowTaskMessage = new WindowTaskMessage(task, this.taskUserControl);
+                        WindowTaskMessage windowTaskMessage = new WindowTaskMessage(task, taskUserControl);
                         windowTaskMessage.Show();
 
                     }
                 }
-            };
-            eventSearch = (sender, e) =>
-            {
-
-                for (int i = 0; i < Tasks.Count; i++)
-                {
-                    if (true == Tasks[i].Tast.ToUpper().StartsWith(Search.ToUpper()) && Search != "")
-                    {
-                        Tasks[i].Done = true;
-
-                    }
-                    else
-                    {
-                        Tasks[i].Done = false;
-                    }
-                }
-                this.taskUserControl.ItemsControlTask.ItemsSource = null;
-                this.taskUserControl.ItemsControlTask.ItemsSource = Tasks;
-            };
+            };           
         }
     }
 }

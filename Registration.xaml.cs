@@ -24,7 +24,7 @@ namespace Glider_WPF_1._0
         public Registration()
         {
             InitializeComponent();
-            registrationViewModel = new RegistrationViewModel();
+            registrationViewModel = new RegistrationViewModel(this);
             DataContext = registrationViewModel;
         }
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

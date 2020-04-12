@@ -14,16 +14,16 @@
         </Grid.ColumnDefinitions>
         <StackPanel Background="#FF79CBE3" >
             <Grid Height="70" Background="White"/>
-            <TextBox x:Name="Revenue_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Выручка" FontSize="14" Margin="10"/>
-            <TextBox x:Name="Order_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Прибыль" FontSize="14"  Margin="10"/>
-            <TextBox x:Name="Checks_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Чеки" FontSize="14" Margin="10"/>
-            <TextBox x:Name="ChecksAmount_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Средний Чек" FontSize="14" Margin="10"/>
+            <TextBox x:Name="Revenue_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Выручка" FontSize="14" Margin="10" Text="{Binding Revenue}"/>
+            <TextBox x:Name="Order_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Прибыль" FontSize="14"  Margin="10" Text="{Binding Order}" />
+            <TextBox x:Name="Checks_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Чеки" FontSize="14" Margin="10" Text="{Binding Checks}" />
+            <TextBox x:Name="ChecksAmount_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Средний Чек" FontSize="14" Margin="10" Text="{Binding ChecksAmount}" />
             <TextBox x:Name="Notes_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Заметки" FontSize="14" Margin="10"
-                     MaxHeight="120" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" />
+                     MaxHeight="120" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding Notes}" />
             <Button  FontSize="12" Content="Добавить" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Click="AddButtonClick" />
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding AddReport}"  />
             <Button FontSize="12" Content="Удалить" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Click="RemoveButtonClick" />
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding RemoveReport}"  />
         </StackPanel>
         <Grid Grid.Column="1" >
             <Grid.RowDefinitions>

@@ -14,23 +14,65 @@ namespace Glider_WPF_1._0.UserControlTask
     {
         WindowTaskMessage windowTaskMessage;
         TaskUserControl taskUserControl;
-
-        Task task = new Task();
-        string Heading { get; set; }
-        string Task { get; set; }
-        DateTime Data { get; set; }
-        DateTime Time { get; set; }
-        private List<Task> tasks = new List<Task>();
-        public List<Task> Tasks
+        private string heading;
+        private string taskProperti;
+        private DateTime data = DateTime.Now;
+        private DateTime time = DateTime.Now;
+        private string login;
+       
+        public string Heading
+        {
+            get
+            {
+                return heading;
+            }
+            set
+            {
+                Set(ref heading, value);
+            }
+        }
+        public string Task
+        {
+            get
+            {
+                return taskProperti;
+            }
+            set
+            {
+                Set(ref taskProperti, value);
+            }
+        }
+        public DateTime Data
+        {
+            get
+            {
+                return data;
+            }
+            set
+            {
+                Set(ref data, value);
+            }
+        }
+        public DateTime Time
+        {
+            get
+            {
+                return time;
+            }
+            set
+            {
+                Set(ref time, value);
+            }
+        }
+        private ObservableCollection<Task> tasks = new ObservableCollection<Task>();
+        public ObservableCollection<Task> Tasks
         {
             get
             {
                 return tasks;
             }
-            set
-            {
-                Tasks.Add(task);
-            }
+           
+            
         }
         private ICommand doneTask;
         public ICommand DoneTask
@@ -50,7 +92,7 @@ namespace Glider_WPF_1._0.UserControlTask
                     gliderDataContext.SaveChanges();
 
                     taskUserControl.ItemsControlTask.ItemsSource = null;
-                    Tasks.Clear();
+                    tasks.Clear();
                     ObservableCollection<Task> TaskSort = new ObservableCollection<Task>(GliderDataContext.Instance.Tasks.ToList());
                     foreach (Task tas in TaskSort)
                     {
@@ -59,15 +101,68 @@ namespace Glider_WPF_1._0.UserControlTask
                     }
                     taskUserControl.ItemsControlTask.ItemsSource = Tasks;
                     #endregion 
+                    taskUserControl.timer.Start();
                     windowTaskMessage.Close();
+                }));
+            }
+        }
+        private ICommand renameTask;
+        public ICommand RenameTask
+        {
+            get
+            {
+                return renameTask ?? (renameTask = new CommandExecutor(() => 
+                {
+                    try
+                    {
+                        Task taskWindow = null;
+                        foreach (Task item in Tasks)
+                        {
+                            taskWindow = item;
+                        }
+                        #region TaskUserControl
+                        GliderDataContext gliderDataContext = GliderDataContext.Instance;
+                        gliderDataContext.Tasks.Remove(taskWindow);
+                        gliderDataContext.SaveChanges();
+                        #endregion
+                        DateTime? date = Data;
+                        DateTime? time = Time;
+                        DateTime dateTime = new DateTime(date.Value.Year, date.Value.Month, date.Value.Day, time.Value.Hour, time.Value.Minute, time.Value.Second);
+                        Task task = new Task(Heading, Task, dateTime, login);
+                        gliderDataContext.Tasks.Add(task);
+                        gliderDataContext.SaveChanges();
+                        tasks.Add(task);
+                        taskUserControl.ItemsControlTask.ItemsSource = null;
+                        tasks.Clear();
+                        ObservableCollection<Task> TaskSort = new ObservableCollection<Task>(GliderDataContext.Instance.Tasks.ToList());
+                        foreach (Task tas in TaskSort)
+                        {
+                            if (tas.Login == taskUserControl.Login)
+                                tasks.Add(tas);
+                        }
+                        taskUserControl.ItemsControlTask.ItemsSource = Tasks;
+                        taskUserControl.timer.Start();
+                        windowTaskMessage.Close();
+                    }
+                    catch 
+                    {
+
+                        
+                    }
                 }));
             }
         }
         public WindowTaskMessageViewModel(Task task, TaskUserControl taskUserControl, WindowTaskMessage windowTaskMessage)
         {
-            this.task = task;
             this.windowTaskMessage = windowTaskMessage;
             this.taskUserControl = taskUserControl;
+            login = taskUserControl.Login;
+            tasks.Add(task);
+            heading = task.Heading;
+            taskProperti = task.Tast;
+            data = task.Alarm;
+            time = task.Alarm;
+            taskUserControl.timer.Stop();
         }
     }
 }

@@ -28,9 +28,9 @@
                         </StackPanel>
                         <UniformGrid DockPanel.Dock="Bottom" VerticalAlignment="Top" Margin="10,0" Rows="1" >
                             <Button  FontSize="12" Content="Выполнено" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Click="DoneButtonClik" />
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding DoneTask}" />
                             <Button  FontSize="12" Content="Исправить " Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Click="RenameButtonClick" />
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding RenameTask}" />
                         </UniformGrid>
                     </StackPanel>
                 </DockPanel>

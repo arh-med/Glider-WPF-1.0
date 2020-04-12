@@ -105,6 +105,7 @@
     <Compile Include="UserControlMail\MailUserControl.xaml.cs">
       <DependentUpon>MailUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlMail\MailUserControlViewModel.cs" />
     <Compile Include="UserControlMail\MessageRecipientsUserControl.xaml.cs">
       <DependentUpon>MessageRecipientsUserControl.xaml</DependentUpon>
     </Compile>
@@ -114,15 +115,18 @@
     <Compile Include="UserControlMail\WindowMailMessage.xaml.cs">
       <DependentUpon>WindowMailMessage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlMail\WindowMailMessageViewModel.cs" />
     <Compile Include="UserControlReport\ReportElementUserControl.xaml.cs">
       <DependentUpon>ReportElementUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlReport\ReportUserControl.xaml.cs">
       <DependentUpon>ReportUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlReport\ReportUserControlViewModel.cs" />
     <Compile Include="UserControlRequest\RequestUserControl.xaml.cs">
       <DependentUpon>RequestUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlRequest\RequestUserControlViewModel.cs" />
     <Compile Include="UserControlSaver\SaverUserControl.xaml.cs">
       <DependentUpon>SaverUserControl.xaml</DependentUpon>
     </Compile>
