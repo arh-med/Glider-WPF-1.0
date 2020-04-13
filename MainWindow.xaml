@@ -32,13 +32,13 @@
           <materialDesign:PackIcon Kind="Close" Height="20" Width="20" />
         </ToggleButton>
         <CheckBox IsChecked="{Binding CheckRem}"  x:Name="CheckRemember" FontSize="9" HorizontalAlignment="Left" Foreground="{Binding ElementName=txt_User,Path=BorderBrush}" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignCheckBox}" Margin="30,0,0,137" Width="90">Запомнить</CheckBox>
-        <Button  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="120,0,0,132" FontSize="9" Content="Помошь" Style="{StaticResource MaterialDesignFlatButton}" ToolTip="MaterialDesignFlatButton" Height="25" Width="100" Click="Button_Click"/>
+        <Button  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="120,0,0,132" FontSize="9" Content="Помошь" Style="{StaticResource MaterialDesignFlatButton}"  Height="25" Width="100" Click="Button_Click"/>
         <Button  HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Вход" Width="70" 
     Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9" Margin="30,0,0,90" BorderBrush="#FF93D6E9" RenderTransformOrigin="1.108,0.344" Command="{Binding LoginCommand}"  />
+     Background="#FF93D6E9" Margin="30,0,0,90" BorderBrush="#FF93D6E9" RenderTransformOrigin="1.108,0.344" Command="{Binding LoginCommand}"  />
         <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Регистрация" Width="105"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9" Margin="115,0,0,90" BorderBrush="#FF93D6E9" Click="RegButtonClick" />
+     Background="#FF93D6E9" Margin="115,0,0,90" BorderBrush="#FF93D6E9" Click="RegButtonClick" />
 
 
     </Grid>

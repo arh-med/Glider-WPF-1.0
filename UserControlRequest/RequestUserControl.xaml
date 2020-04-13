@@ -18,11 +18,11 @@
             <TextBox x:Name="Quanti_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Количество" FontSize="14"  Margin="10" Text="{Binding Quantity}"/>
             <TextBox x:Name="CustomerPhone_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Телефон" FontSize="14" Margin="10" Text="{Binding CustomerPhone}"/>
             <Button  FontSize="12" Content="Добавить" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding AddRequest}"/>
+     Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding AddRequest}"/>
             <Button  FontSize="12" Content="Исправить" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding RenameRequest}"/>
+     Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding RenameRequest}"/>
             <Button  FontSize="12" Content="Удалить" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding RemoveRequest}" />
+     Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding RemoveRequest}" />
         </StackPanel>
         <Grid Grid.Column="1" >
             <Grid.RowDefinitions>

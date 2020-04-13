@@ -23,7 +23,7 @@
             <TextBox x:Name="Message_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Сообщение" FontSize="14" Margin="10"
                      MaxHeight="120" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding Message}" />
             <Button Height="60"  FontSize="12" Content="Отправить" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding AddMessage}" />
+     Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding AddMessage}" />
         </StackPanel>
         <Grid Grid.Column="1" >
             <Grid.RowDefinitions>

@@ -20,11 +20,11 @@
             <DatePicker Name="Data_txt" Width="130" MatDes:HintAssist.Hint="Дата" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" HorizontalAlignment="Left" Margin="10,0" SelectedDate="{Binding Data}" />
             <MatDes:TimePicker  Is24Hours="True" x:Name="PresetTimePicker" Width="130"  HorizontalAlignment="Left" Margin="10,0" MatDes:HintAssist.Hint="Время" SelectedTime="{Binding Time}" />
             <Button  FontSize="12" Content="Добавить" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding AddTask}" />
+     Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding AddTask}" />
             <Button  FontSize="12" Content="Вызвать" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding InduceTask}" />
+     Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding InduceTask}" />
             <Button  FontSize="12" Content="Удалить" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding RemoveTask}"  />
+     Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding RemoveTask}"  />
         </StackPanel>
         <Grid Grid.Column="1" >
             <Grid.RowDefinitions>

@@ -25,11 +25,11 @@
                      MaxHeight="120" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding BodyMessageSend}" />
                         <UniformGrid DockPanel.Dock="Bottom" VerticalAlignment="Top" Margin="10,25" Rows="1" >
                             <Button  FontSize="12" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Content="Почитано" Command="{Binding DoneMessage}" />
+     Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Content="Почитано" Command="{Binding DoneMessage}" />
 
 
                             <Button  FontSize="12" Content="Отправить" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding SendMessage}"  />
+     Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding SendMessage}"  />
                         </UniformGrid>
                     </StackPanel>
                 </DockPanel>
