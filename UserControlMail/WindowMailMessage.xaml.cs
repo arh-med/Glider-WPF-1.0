@@ -22,49 +22,17 @@ namespace Glider_WPF_1._0.UserControlMail
     /// </summary>
     public partial class WindowMailMessage : Window
     {
+
+
         MailUserControl mailUserControl;
-        UserMail message;
-        GliderDataContext gliderDataContext = GliderDataContext.Instance;
-        public ObservableCollection<UserMail> Mails { get; set; }
         public WindowMailMessage( MailUserControl mailUserControl, UserMail message)
         {
             InitializeComponent();
             this.mailUserControl = mailUserControl;
-            this.message = message;
+            WindowMailMessageViewModel windowMailMessageViewModel = new WindowMailMessageViewModel(mailUserControl, message,this);
+            DataContext = windowMailMessageViewModel;
             this.mailUserControl.timer.Stop();
             this.mailUserControl.ComboBoxRecipients_SelectionChanged();
-
-
-        }
-
-        private void ButtonClickDone(object sender, RoutedEventArgs e)
-        {
-            message.Done = true;
-            gliderDataContext.Entry(message).State = EntityState.Modified;
-            gliderDataContext.SaveChanges();
-            mailUserControl.timer.Start();
-            this.Close();
-           
-        }
-
-        private void ButtonClickSend(object sender, RoutedEventArgs e)
-        {
-
-            UserMail messageSend = new UserMail();
-            messageSend.Heading = Heading_txt.Text;
-            messageSend.BodyMessage = Message_txt.Text;
-            messageSend.TimeMessage = DateTime.Now;
-            messageSend.Sender = this.message.Recipient;
-            messageSend.Recipient = this.message.Sender;
-            gliderDataContext.UserMail.Add(messageSend);
-
-            message.Done = true;
-            gliderDataContext.Entry(message).State = EntityState.Modified;
-            gliderDataContext.SaveChanges();
-
-
-            mailUserControl.timer.Start();
-            this.Close();
         }
     }
 }

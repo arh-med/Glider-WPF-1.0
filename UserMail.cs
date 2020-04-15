@@ -11,5 +11,17 @@ namespace Glider_WPF_1._0
         public bool Done { get; set; }
         public string Sender { get; set; }
         public string Recipient { get; set; }
+        public UserMail(string Heading, string BodyMessage, string Sender, string Recipient)
+        {
+            this.Heading = Heading;
+            this.BodyMessage = BodyMessage;
+            this.Sender = Sender;
+            this.Recipient = Recipient;
+            TimeMessage = DateTime.Now;
+        }
+        public UserMail()
+        {
+
+        }
     }
 }

@@ -27,29 +27,22 @@ namespace Glider_WPF_1._0
         public MainWindow()
         {
             InitializeComponent();
-
             _mainWindowViewModel = new MainWindowViewModel();
             DataContext = _mainWindowViewModel;
-
             txt_Password.Password = _mainWindowViewModel.PassworText;
             _mainWindowViewModel.OnLoginFailed += Login_Failed;
             _mainWindowViewModel.OnLoginSucceded += Login_Succeded;
-
+            
         }
-
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
-
         private void RegButtonClick(object sender, RoutedEventArgs e)
         {
             Registration registration = new Registration();
             registration.Show();
         }
-
-       
-
         private void ToggleButton_Exit(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -59,7 +52,6 @@ namespace Glider_WPF_1._0
         {
             _mainWindowViewModel.PassworText = ((PasswordBox)sender).Password;
         }
-
         private void Login_Failed(object sender, EventArgs e)
         {
             lable_txt.Content = "Неправильное имя или пароль";
@@ -70,7 +62,6 @@ namespace Glider_WPF_1._0
             home.Show();
             this.Close();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Support support = new Support();

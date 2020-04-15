@@ -19,20 +19,20 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" Height="57" Width="200" Margin="30,0,0,218" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <materialDesign:PackIcon Kind="Account" Width="20" Height="20" Foreground="{Binding ElementName=txt_User,Path=BorderBrush}" Margin="0,19"/>
-            <TextBox  x:Name="txt_User" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="170"  />
+            <TextBox  x:Name="txt_User" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="170" Text="{Binding User}"  />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Height="57" Width="200" Margin="30,0,0,160" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <materialDesign:PackIcon Kind="Key" Width="20" Height="20" Foreground="{Binding ElementName=txt_Password,Path=BorderBrush}" Margin="0,19"/>
             <PasswordBox  x:Name="txt_Password" VerticalAlignment="Top" materialDesign:HintAssist.Hint="Пароль"
-      Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="170" />
+      Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="170" PasswordChanged="PasswordPasswordChanged" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Height="57" Width="200" Margin="30,0,0,100" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <materialDesign:PackIcon Kind="Company" Width="20" Height="20" Foreground="{Binding ElementName=txt_Company,Path=BorderBrush}" Margin="0,19"/>
-            <TextBox  x:Name="txt_Company" materialDesign:HintAssist.Hint="Компания" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="170"  />
+            <TextBox  x:Name="txt_Company" materialDesign:HintAssist.Hint="Компания" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="170" Text="{Binding Company}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Height="57" Width="200" Margin="30,0,0,40" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <materialDesign:PackIcon Kind="LocationOn" Width="20" Height="20" Foreground="{Binding ElementName=txt_Adress,Path=BorderBrush}" Margin="0,19"/>
-            <TextBox  x:Name="txt_Adress" materialDesign:HintAssist.Hint="Адрес" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="170"  />
+            <TextBox  x:Name="txt_Adress" materialDesign:HintAssist.Hint="Адрес" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="170" Text="{Binding Adress}"  />
         </StackPanel>
         <ToggleButton Click="ToggleButton_Exit"  VerticalAlignment="Top" HorizontalAlignment="Right"
   Style="{StaticResource MaterialDesignFlatToggleButton}"
@@ -44,7 +44,7 @@
 
         <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Content="Регистрация" Width="105"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9" Margin="75,0,0,15" BorderBrush="#FF93D6E9" Click="Button_Reg"/>
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9" Margin="75,0,0,15" BorderBrush="#FF93D6E9" Command="{Binding RegistrationUser}"/>
 
 
     </Grid>

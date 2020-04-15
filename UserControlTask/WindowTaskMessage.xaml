@@ -19,18 +19,18 @@
                 </ItemsControl>
                 <DockPanel  Background="#FF79CBE3" MinHeight="220" >
                     <StackPanel  DockPanel.Dock="Top">
-                        <TextBox x:Name="Heading_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Заголовок" FontSize="14" Margin="10"/>
+                        <TextBox x:Name="Heading_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Заголовок" FontSize="14" Margin="10" Text="{Binding Heading}"/>
                         <TextBox x:Name="Task_txt" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MatDes:HintAssist.Hint="Задача" FontSize="14" Margin="10"
-                     MaxHeight="120" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" />
+                     MaxHeight="120" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding Task}" />
                         <StackPanel Orientation="Horizontal" MinHeight="40">
-                            <DatePicker Name="Data_txt" Width="130" MatDes:HintAssist.Hint="Дата"  HorizontalAlignment="Left" Margin="10,0" />
-                            <MatDes:TimePicker  Is24Hours="True" x:Name="PresetTimePicker" Width="130"  HorizontalAlignment="Left" Margin="20,0" MatDes:HintAssist.Hint="Время"  />
+                            <DatePicker Name="Data_txt" Width="130" MatDes:HintAssist.Hint="Дата"  HorizontalAlignment="Left" Margin="10,0" SelectedDate="{Binding Data}" />
+                            <MatDes:TimePicker  Is24Hours="True" x:Name="PresetTimePicker" Width="130"  HorizontalAlignment="Left" Margin="20,0" MatDes:HintAssist.Hint="Время" SelectedTime="{Binding Time}"  />
                         </StackPanel>
                         <UniformGrid DockPanel.Dock="Bottom" VerticalAlignment="Top" Margin="10,0" Rows="1" >
                             <Button  FontSize="12" Content="Выполнено" Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Click="DoneButtonClik" />
+    Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding DoneTask}" />
                             <Button  FontSize="12" Content="Исправить " Margin="5" Style="{StaticResource MaterialDesignRaisedLightButton}"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Click="RenameButtonClick" />
+    Background="#FF93D6E9"  BorderBrush="#FF93D6E9" Command="{Binding RenameTask}" />
                         </UniformGrid>
                     </StackPanel>
                 </DockPanel>
